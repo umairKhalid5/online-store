@@ -5,3 +5,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h3 {
+    @apply text-3xl text-orange-600 font-semibold pb-1 text-center sm:text-4xl;
+  }
+  h3 > span:nth-of-type(1) {
+    @apply h-[1px] flex-1 mr-3 sm:hidden;
+  }
+  h3 > span:nth-of-type(2) {
+    @apply h-[1px] flex-1 ml-3;
+  }
+  img {
+    @apply select-none;
+  }
+}
+
+@layer components {
+  /* ScrollBar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    /* border-radius: 25px; */
+    transition: background 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-300;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-orange-600/50;
+  }
+
+  .btn {
+    @apply bg-orange-600 text-white rounded-full px-4 py-3 text-lg font-medium border-2 border-orange-600 tracking-wide shadow-md shadow-orange-600/20 hover:bg-white hover:text-orange-600 hover:-translate-y-1 active:translate-y-1 active:shadow-orange-600/30 active:shadow-lg duration-200;
+  }
+}
+.swiper-button-prev,
+.swiper-button-next {
+  @apply text-indigo-200/80 bg-indigo-700/10 rounded-full w-10 h-10 hover:text-indigo-100 duration-200;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply text-2xl;
+}
+@media (max-width: 640px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+}
