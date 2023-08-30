@@ -4,8 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Products from './components/Products';
 import ProductDetails from './components/ProductDetails';
-
-// TODO: start from reading the TODO in Products.jsx
+import CallToActionOne from './components/CallToActionOne';
 
 function App() {
   return (
@@ -18,6 +17,7 @@ function App() {
             <>
               <Hero />
               <Products title={'Featured'} />
+              <CallToActionOne />
             </>
           }
         />
@@ -33,11 +33,12 @@ export default App;
 // Navbar - Search - Cart
 // Hero Slider (swiper.js)
 // featured products
-// Grid with images for categories
 // a section with button to all products and image on the side (like 'Creative harmonious living' on Stefan's store)
+// Trending Now Products Slider
 // slider CTA with image and sale
+// Grid with images for categories
 // footer
 // Add favicon and LOGO
 
-// Try adding filtering functionalities
+// Try adding filtering and sorting functionalities
 // Add lazyloading to images

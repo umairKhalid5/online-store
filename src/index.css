@@ -44,6 +44,9 @@
   .btn {
     @apply bg-orange-600 text-white rounded-full px-4 py-3 text-lg font-medium border-2 border-orange-600 tracking-wide shadow-md shadow-orange-600/20 hover:bg-white hover:text-orange-600 hover:-translate-y-1 active:translate-y-1 active:shadow-orange-600/30 active:shadow-lg duration-200;
   }
+  .quantity > * {
+    @apply px-7 py-2 flex-1;
+  }
 }
 .swiper-button-prev,
 .swiper-button-next {
