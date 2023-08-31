@@ -42,15 +42,22 @@
   }
 
   .btn {
-    @apply bg-orange-600 text-white rounded-full px-4 py-3 text-lg font-medium border-2 border-orange-600 tracking-wide shadow-md shadow-orange-600/20 hover:bg-white hover:text-orange-600 hover:-translate-y-1 active:translate-y-1 active:shadow-orange-600/30 active:shadow-lg duration-200;
+    @apply bg-orange-600 text-white rounded-full px-4 py-3 text-base font-medium border-2 border-orange-600 tracking-wide shadow-md shadow-orange-600/20 hover:bg-white hover:text-orange-600 hover:-translate-y-1 active:translate-y-1 active:shadow-orange-600/30 active:shadow-lg duration-200 sm:text-lg;
   }
   .quantity > * {
     @apply px-7 py-2 flex-1;
   }
+  .chip {
+    @apply bg-gray-700 select-none rounded-full py-1 px-3 capitalize text-white shadow-md cursor-pointer hover:bg-white hover:text-orange-700 duration-200;
+  }
 }
-.swiper-button-prev,
+/* .swiper-button-prev,
 .swiper-button-next {
   @apply text-indigo-200/80 bg-indigo-700/10 rounded-full w-10 h-10 hover:text-indigo-100 duration-200;
+} */
+.swiper-button-prev,
+.swiper-button-next {
+  @apply text-gray-100 bg-gray-700/40 rounded-full w-10 h-10 hover:text-indigo-100 duration-200;
 }
 .swiper-button-prev::after,
 .swiper-button-next::after {

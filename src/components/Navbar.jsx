@@ -10,7 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 const navItems = [
   {
-    item: 'Categories',
+    item: 'Products',
     id: 'categories',
     path: 'categories/all',
   },
@@ -56,7 +56,7 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search"
-            className="border w-full border-gray-700 text-gray-700 outline-none rounded-full px-3 py-2 sm:px-4 hover:border-orange-600 focus:border-orange-600 duration-200 focus:shadow-md"
+            className="border w-full border-gray-700 text-gray-700 outline-none rounded-full px-3 py-2 sm:px-4 hover:border-orange-600 focus:border-orange-600 duration-200 focus:shadow-md focus:bg-orange-50"
           />
         </div>
 

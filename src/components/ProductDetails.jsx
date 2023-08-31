@@ -32,11 +32,11 @@ const ProductDetails = () => {
 
   return (
     <div className="w-full py-10">
-      <div className="max-w-7xl mx-auto p-2 gap-8 flex flex-col start justify-between md:gap-5 md:p-5 md:flex-row">
+      <div className="max-w-7xl mx-auto px-3 p-2 gap-8 flex flex-col start justify-between md:gap-5 md:p-5 md:flex-row">
         {/* Left - Images */}
         <div className="w-full flex flex-col space-y-3 md:w-1/3">
           {/* Main Image */}
-          <div className="w-full aspect-square bg-gray-100 cursor-pointer rounded-lg overflow-hidden hover:bg-orange-200 duration-500 ease-out">
+          <div className="w-full aspect-square bg-gray-100 cursor-pointer rounded-lg overflow-hidden hover:bg-blue-100 duration-500 ease-out">
             <img
               src={imgSrc || selectedItem.image}
               alt={selectedItem.name}
@@ -51,11 +51,11 @@ const ProductDetails = () => {
                 key={i}
                 className={`w-20 aspect-square ${
                   imgSrc === img
-                    ? 'bg-orange-200 opacity-100'
+                    ? 'bg-blue-100 opacity-100'
                     : imgSrc === null && i === 0
-                    ? 'bg-orange-200 opacity-100'
+                    ? 'bg-blue-100 opacity-100'
                     : 'bg-gray-100 opacity-60'
-                } rounded-lg cursor-pointer p-[2px] hover:bg-orange-200 duration-500 ease-out`}
+                } rounded-lg cursor-pointer p-[2px] hover:bg-blue-100 duration-500 ease-out`}
                 onMouseOver={() => updateImage(img)}
               >
                 <img
@@ -92,14 +92,14 @@ const ProductDetails = () => {
             <p>Quantity:</p>
             <span className="quantity border-2 rounded-md">
               <button
-                className="border-r-2 text-red-400 bg-gray-100 hover:bg-orange-200 duration-200"
+                className="border-r-2 text-red-400 bg-gray-50 hover:bg-blue-100 duration-200"
                 onClick={() => updateItemsCount('remove')}
               >
                 -
               </button>
               <span>{itemsCount}</span>
               <button
-                className="border-l-2 text-green-400 bg-gray-100 hover:bg-orange-100 duration-200"
+                className="border-l-2 text-green-400 bg-gray-50 hover:bg-blue-100 duration-200"
                 onClick={() => updateItemsCount('add')}
               >
                 +

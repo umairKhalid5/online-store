@@ -534,3 +534,124 @@ export const allProducts = [
   { category: 'all' },
   { products: [...allRandomizedProducts] },
 ];
+
+export const trending = [
+  {
+    category: 'trending',
+  },
+  {
+    products: [
+      {
+        id: 'sh1',
+        name: 'RBK Performance',
+        price: 56,
+        desc: `The Reebok Performance Zig Dynamica 2.0 is designed to provide superior energy and lasting comfort. Featuring a breathable mesh upper and lightweight FuelFoam midsole, these shoes offer enhanced support and cushioning for long days. The eye-catching zigzag midsole design adds a unique and stylish touch.`,
+        image: '/images/shoes/1/s1.jpg',
+        otherImages: [
+          {
+            image2: '/images/shoes/1/s2.jpg',
+            image3: '/images/shoes/1/s3.jpg',
+            image4: '/images/shoes/1/s4.jpg',
+          },
+        ],
+      },
+      {
+        id: 'h2',
+        name: 'Rockerz 451',
+        price: 49,
+        desc: `Set your mind ablaze with boAt Rockerz 450 — our slick headphones that offer immersive sound quality and add luxury to your sound. Propelled by crystal clear 40mm dynamic drivers, slip into an alternate HD immersive audio reality. The soft cornered matte black finish allows for a comfortable fit, propagated by plush foam in adaptive and adjustable design. Choose your mode, go wireless with Bluetooth V4.2 or connect an aux wire that doesn’t cause any drain on the 300mAh rechargeable lithium battery.`,
+        image: '/images/headphones/2/headphones_c_1.webp',
+        otherImages: [
+          {
+            image2: '/images/headphones/2/headphones_c_2.webp',
+            image3: '/images/headphones/2/headphones_c_3.webp',
+            image4: '/images/headphones/2/headphones_c_4.webp',
+          },
+        ],
+      },
+      {
+        id: 'gr2',
+        name: 'MEN T-SHIRT Blue',
+        price: 49,
+        desc: `Stylish and Trendy.`,
+        image: '/images/garments/2/s1.jpg',
+        otherImages: [
+          {
+            image2: '/images/garments/2/s2.jpg',
+            image3: '/images/garments/2/s3.jpg',
+            image4: '/images/garments/2/s4.jpg',
+          },
+        ],
+      },
+      {
+        id: 'sh7',
+        name: 'Balanciaga Trainer',
+        price: 49,
+        desc: `Balanciaga Trainer is next-level comfort on your walk. This slip-on sneaker features a Stretch Fit engineered mesh upper, lightweight WALK cushioning midsole, and high-rebound Hyper Pillar Technology for added support.`,
+        image: '/images/shoes/7/s1.jpg',
+        otherImages: [
+          {
+            image2: '/images/shoes/7/s2.jpg',
+            image3: '/images/shoes/7/s3.jpg',
+            image4: '/images/shoes/7/s4.jpg',
+          },
+        ],
+      },
+      {
+        id: 'h7',
+        name: 'BassHeads 900',
+        price: 49,
+        desc: `The boAt BassHeads 900 wired headphones come with an amalgamation of style with performance. Now get ready to enjoy your favourite tunes with Super Extra Bass and crystal-clear sound performance with Bass Heads 900 wired headphones. Experience powerful, dynamic sound with punchy bass and clear, natural vocals with the responsive 40mm Neodymium drivers, the drivers effectively reproduce sound equally across the whole audio band. The ergonomic design creates passive attenuation of ambient noise while providing maximum comfort for hours of listening pleasure in a snuggly fit without fatigue. The sleek, lightweight, and compact design makes portability extremely convenient. The foldable and compact Feather Light Headphone weighs even less than 150 g, moreover, the ear cups can be folded for easy, convenient storage.`,
+        image: '/images/headphones/7/headphones_b_1.webp',
+        otherImages: [
+          {
+            image2: '/images/headphones/7/headphones_b_2.webp',
+            image3: '/images/headphones/7/headphones_b_3.webp',
+            image4: '/images/headphones/7/headphones_b_4.webp',
+          },
+        ],
+      },
+      {
+        id: 'fr2',
+        name: 'Elba Chair',
+        price: 49,
+        desc: `Turn your home into a stunning reflection of your unique personality.`,
+        image: '/images/furniture/3/chair1.jpg',
+        otherImages: [
+          {
+            image2: '/images/furniture/3/chair2.webp',
+            image3: '/images/furniture/3/chair3.webp',
+          },
+        ],
+      },
+      {
+        id: 'fe7',
+        name: 'Polo 705 Black',
+        price: 34,
+        desc: `Layer up in comfort!`,
+        image: '/images/garments/4/s1.jpg',
+        otherImages: [
+          {
+            image2: '/images/garments/4/s2.jpg',
+            image3: '/images/garments/4/s3.jpg',
+            image4: '/images/garments/4/s4.jpg',
+          },
+        ],
+      },
+      {
+        id: 'h2',
+        name: 'Rockerz 451',
+        price: 49,
+        desc: `Set your mind ablaze with boAt Rockerz 450 — our slick headphones that offer immersive sound quality and add luxury to your sound. Propelled by crystal clear 40mm dynamic drivers, slip into an alternate HD immersive audio reality. The soft cornered matte black finish allows for a comfortable fit, propagated by plush foam in adaptive and adjustable design. Choose your mode, go wireless with Bluetooth V4.2 or connect an aux wire that doesn’t cause any drain on the 300mAh rechargeable lithium battery.`,
+        image: '/images/headphones/2/headphones_c_1.webp',
+        otherImages: [
+          {
+            image2: '/images/headphones/2/headphones_c_2.webp',
+            image3: '/images/headphones/2/headphones_c_3.webp',
+            image4: '/images/headphones/2/headphones_c_4.webp',
+          },
+        ],
+      },
+    ],
+  },
+];
