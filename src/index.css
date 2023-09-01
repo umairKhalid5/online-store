@@ -48,7 +48,7 @@
     @apply px-7 py-2 flex-1;
   }
   .chip {
-    @apply bg-gray-700 select-none rounded-full py-1 px-3 capitalize text-white shadow-md cursor-pointer hover:bg-white hover:text-orange-700 duration-200;
+    @apply bg-gray-700 select-none rounded-full py-1 px-3 capitalize text-white shadow-md cursor-pointer hover:bg-gray-500 duration-200;
   }
 }
 /* .swiper-button-prev,

@@ -7,8 +7,9 @@ import ProductDetails from './components/ProductDetails';
 import CallToActionOne from './components/CallToActionOne';
 import ItemsSlider from './components/ItemsSlider';
 import CallToActionTwo from './components/CallToActionTwo';
+import GridMenu from './components/GridMenu';
 
-// TODO: See Products.jsx!
+// TODO: Work on Grid!
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <CallToActionOne />
               <ItemsSlider />
               <CallToActionTwo />
+              <GridMenu />
             </>
           }
         />

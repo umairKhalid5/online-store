@@ -70,7 +70,7 @@ const Hero = () => {
 
         {/* Swiper */}
         <Swiper
-          className="max-w-5xl md:w-2/3 aspect-video rounded-xl md:rounded-full"
+          className="max-w-5xl md:w-2/3 aspect-video rounded-xl md:rounded-full shadow-lg"
           // install Swiper modules
           modules={[EffectFade, Navigation, Autoplay, Pagination, A11y]}
           spaceBetween={40}
@@ -88,11 +88,11 @@ const Hero = () => {
           {swiperData.map(item => (
             <SwiperSlide
               key={item.image}
-              className="relative before:absolute before:inset-0 before:bg-gray-50/40 before:content-[''] hover:before:bg-gray-50/20 before:duration-200 select-none"
+              className="relative before:absolute before:inset-0 before:bg-gray-50/30 before:content-[''] hover:before:bg-gray-50/10 before:duration-200 select-none"
             >
               <img src={item.image} className="w-full h-full object-cover" />
               <div className="absolute left-[50%] bottom-1 -translate-x-[50%] space-y-1 text-white text-center sm:bottom-3 sm:space-y-2">
-                <h2 className="text-2xl p-1 text-orange-500 font-medium uppercase sm:text-7xl bg-white/80 rounded-md">
+                <h2 className="text-2xl py-1 px-1 text-orange-500 font-medium uppercase sm:text-7xl bg-white/80 rounded-full sm:px-3">
                   {item.title}
                 </h2>
                 <Link
