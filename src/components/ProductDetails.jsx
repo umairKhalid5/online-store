@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { allProducts } from '../constants/constants';
+import Image from './Image';
 
 const ProductDetails = () => {
   const params = useParams();
@@ -36,12 +37,17 @@ const ProductDetails = () => {
         {/* Left - Images */}
         <div className="w-full flex flex-col space-y-3 md:w-1/3">
           {/* Main Image */}
-          <div className="w-full aspect-square bg-gray-100 cursor-pointer rounded-lg overflow-hidden hover:bg-blue-100 duration-500 ease-out">
-            <img
+          <div className="image-container w-full aspect-square bg-gray-100 cursor-pointer rounded-lg overflow-hidden hover:bg-blue-100 duration-500 ease-out">
+            <Image
               src={imgSrc || selectedItem.image}
               alt={selectedItem.name}
               className="object-cover w-full h-full"
             />
+            {/* <img
+              src={imgSrc || selectedItem.image}
+              alt={selectedItem.name}
+              className="object-cover w-full h-full"
+            /> */}
           </div>
 
           {/* Thumbs */}
@@ -49,7 +55,7 @@ const ProductDetails = () => {
             {thumbs.map((img, i) => (
               <div
                 key={i}
-                className={`w-20 aspect-square ${
+                className={`image-container w-20 aspect-square ${
                   imgSrc === img
                     ? 'bg-blue-100 opacity-100'
                     : imgSrc === null && i === 0
@@ -58,11 +64,17 @@ const ProductDetails = () => {
                 } rounded-lg cursor-pointer p-[2px] hover:bg-blue-100 duration-500 ease-out`}
                 onMouseOver={() => updateImage(img)}
               >
-                <img
+                <Image
                   src={img}
                   alt={selectedItem.name}
                   className="object-cover w-full h-full rounded-md"
+                  opacity
                 />
+                {/* <img
+                  src={img}
+                  alt={selectedItem.name}
+                  className="object-cover w-full h-full rounded-md"
+                /> */}
               </div>
             ))}
           </div>

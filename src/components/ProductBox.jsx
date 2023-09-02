@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { productSliceActions } from '../store/product-slice';
+import Image from './Image.jsx';
 
 const ProductBox = ({ item, category, noZoom }) => {
   const dispatch = useDispatch();
@@ -16,13 +17,13 @@ const ProductBox = ({ item, category, noZoom }) => {
       onClick={() => onProductClickHandler(item)}
     >
       <div
-        className={`group bg-gray-50 border w-[280px] min-w-[100%] border-gray-200 rounded-lg shadow-md p-2 flex flex-col items-center space-y-3 cursor-pointer hover:bg-blue-100 ${
+        className={`group product-box bg-gray-50 border min-w-[100%] border-gray-200 rounded-lg shadow-md p-2 flex flex-col items-center space-y-3 cursor-pointer hover:bg-blue-100 ${
           !noZoom && 'hover:scale-110'
         } duration-500 ease-out`}
       >
         {/* Image */}
-        <div className="w-full h-[270px] rounded-lg overflow-hidden bg-gray-50">
-          <img
+        <div className="image-container w-full h-[270px] rounded-lg overflow-hidden bg-gray-50">
+          <Image
             src={item?.image}
             alt={item?.name}
             className="object-cover w-full h-full"

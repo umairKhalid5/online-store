@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import HomeIcon from '@mui/icons-material/Home';
-import InfoIcon from '@mui/icons-material/Info';
-import EngineeringIcon from '@mui/icons-material/Engineering';
-import MailIcon from '@mui/icons-material/Mail';
 import { Link, NavLink } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useSelector } from 'react-redux';
 
 const navItems = [
   {
@@ -14,22 +11,11 @@ const navItems = [
     id: 'categories',
     path: 'categories/all',
   },
-  // {
-  //   item: 'All Products',
-  //   id: 'all-products',
-  //   path: '/all',
-  // },
 ];
 
 const Navbar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
-
-  // const scrollToSection = id => {
-  //   let scrollToEl = document.getElementById(id).offsetTop;
-  //   let scrollNumber = id === 'contact' ? 150 : 60;
-  //   window.scrollTo({ top: scrollToEl - scrollNumber, behavior: 'smooth' });
-  //   setActiveLink(id);
-  // };
+  const quantity = useSelector(state => state.cart.totalQuantity);
 
   return (
     <nav
@@ -83,8 +69,11 @@ const Navbar = () => {
         </ul>
         {/* </div> */}
 
-        <button className="text-orange-600">
-          <ShoppingCartIcon />
+        <button className="text-orange-600 relative">
+          <div className="absolute -top-3 -right-3 w-full h-full bg-black-100 text-orange-600 font-semibold text-sm">
+            {quantity}
+          </div>
+          <ShoppingCartIcon sx={{ fontSize: '1.7rem' }} />
         </button>
 
         {/* Menu Icon */}
@@ -99,7 +88,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={`w-full h-screen absolute inset-0 bg-orange-50 px-3 py-4 space-y-10 ${
-          showMobileNav ? 'translate-x-[0]' : 'translate-x-[-100%] '
+          showMobileNav ? 'translate-x-[0]' : 'translate-x-[-100%]'
         } transition-all duration-500 ease-in-out`}
       >
         {/* Top Bar */}

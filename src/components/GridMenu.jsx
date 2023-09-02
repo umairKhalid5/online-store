@@ -1,37 +1,84 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Image from './Image';
 
 const GridMenu = () => {
+  const imgClasses = 'w-full h-full object-cover rounded-lg';
   return (
     <div className="w-full px-3 py-10 bg-white">
-      <div className="max-w-7xl mx-auto gap-3 grid grid-rows-2 grid-cols-2 md:grid-cols-4">
-        <div className="md:row-span-2 md:col-start-1 md:col-span-2">
-          <img
-            src="/images/hero/bg.jpg"
-            alt=""
-            className="w-full h-full object-cover rounded-lg"
+      <div className="grid-menu max-w-7xl sm:h-[500px] mx-auto gap-3 grid grid-rows-2 grid-cols-2 lg:grid-cols-4">
+        <Link
+          to="/categories/headphones"
+          className="image-container lg:row-span-2 lg:col-start-1 lg:col-span-2"
+        >
+          <Image
+            src="/images/grid/headphone.jpg"
+            alt="headphone"
+            className={imgClasses}
+            opacity
           />
-        </div>
-        <div className="md:col-start-3 md:row-span-2 bg-red-100">
-          <img
-            src="/images/hero/bg1.jpg"
-            alt=""
+          {/* <img
+            src="/images/grid/headphone.jpg"
+            alt="headphone"
+            loading="lazy"
+            className="w-full h-full object-cover rounded-lg"
+          /> */}
+          <h2>Headphones</h2>
+        </Link>
+        <Link
+          to="/categories/shoes"
+          className="image-container lg:col-start-3 lg:row-span-2 bg-red-100"
+        >
+          <Image
+            src="/images/grid/shoes.jpg"
+            alt="shoes"
+            className={imgClasses}
+            opacity
+          />
+          {/* <img
+            src="/images/grid/shoes.jpg"
+            alt="shoes"
+            loading="lazy"
             className="h-full w-full object-cover rounded-lg"
+          /> */}
+          <h2>Shoes</h2>
+        </Link>
+        <Link
+          to="/categories/furniture"
+          className="image-container lg:col-start-4 lg:row-start-1"
+        >
+          <Image
+            src="/images/grid/furniture.jpg"
+            alt="furniture"
+            className={imgClasses}
+            opacity
           />
-        </div>
-        <div className="md:col-start-4 md:row-start-1">
-          <img
-            src="/images/hero/bg2.jpg"
-            alt=""
+          {/* <img
+            src="/images/grid/furniture.jpg"
+            alt="furniture"
+            loading="lazy"
             className="w-full h-full object-cover rounded-lg"
+          /> */}
+          <h2>Furniture</h2>
+        </Link>
+        <Link
+          to="/categories/garments"
+          className="image-container lg:col-start-4"
+        >
+          <Image
+            src="/images/grid/garments.jpg"
+            alt="garments"
+            className={imgClasses}
+            opacity
           />
-        </div>
-        <div className="md:col-start-4">
-          <img
-            src="/images/hero/bg3.jpg"
-            alt=""
+          {/* <img
+            src="/images/grid/garments.jpg"
+            alt="garments"
+            loading="lazy"
             className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
+          /> */}
+          <h2>Garments</h2>
+        </Link>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from './Image';
 // import Swiper core and required modules
 import {
   Navigation,
@@ -44,17 +45,23 @@ const swiperData = [
 
 const Hero = () => {
   return (
-    <div className="w-full px-3 py-10 bg-slate-50 relative">
+    <div className="hero-section w-full px-3 py-10 bg-slate-50 relative flex items-center">
       {/* Backgound Image */}
-      <div className="hidden md:block absolute inset-0 w-full h-full opacity-30">
-        <img
+      <div className="image-container hidden md:block absolute inset-0 w-full h-full opacity-40">
+        <Image
+          opacity
           src="images/hero/bg.jpg"
           alt="hero background"
           className="object-cover w-full max-h-full -translate-x-[30%]"
         />
+        {/* <img
+          src="images/hero/bg.jpg"
+          alt="hero background"
+          className="object-cover w-full max-h-full -translate-x-[30%]"
+        /> */}
       </div>
 
-      <div className="max-w-screen-2xl mx-auto md:space-x-5 flex items-center relative z-10">
+      <div className="flex-1 max-w-screen-2xl mx-auto md:space-x-5 flex items-center relative z-10">
         {/* Welcome */}
         <div className="hidden md:flex flex-1 flex-col items-center space-y-5 text-center">
           <h2 className="text-3xl font-medium uppercase text-gray-700">
@@ -88,10 +95,15 @@ const Hero = () => {
           {swiperData.map(item => (
             <SwiperSlide
               key={item.image}
-              className="relative before:absolute before:inset-0 before:bg-gray-50/30 before:content-[''] hover:before:bg-gray-50/10 before:duration-200 select-none"
+              className="relative before:absolute before:inset-0 before:bg-gray-50/30 before:content-[''] hover:before:bg-gray-50/10 before:duration-200 before:z-[1] select-none cursor-grab"
             >
-              <img src={item.image} className="w-full h-full object-cover" />
-              <div className="absolute left-[50%] bottom-1 -translate-x-[50%] space-y-1 text-white text-center sm:bottom-3 sm:space-y-2">
+              <Image
+                src={item.image}
+                className="w-full h-full object-cover"
+                alt={item.title}
+              />
+              {/* <img src={item.image} className="w-full h-full object-cover" /> */}
+              <div className="absolute left-[50%] bottom-1 -translate-x-[50%] space-y-1 text-white text-center sm:bottom-3 sm:space-y-2 z-[2]">
                 <h2 className="text-2xl py-1 px-1 text-orange-500 font-medium uppercase sm:text-7xl bg-white/80 rounded-full sm:px-3">
                   {item.title}
                 </h2>

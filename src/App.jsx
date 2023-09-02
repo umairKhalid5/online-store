@@ -8,12 +8,13 @@ import CallToActionOne from './components/CallToActionOne';
 import ItemsSlider from './components/ItemsSlider';
 import CallToActionTwo from './components/CallToActionTwo';
 import GridMenu from './components/GridMenu';
+import Footer from './components/Footer';
 
-// TODO: Work on Grid!
+// TODO: Work on Search and AutoComplete Feature!
 
 function App() {
   return (
-    <div className="pb-14">
+    <>
       <Navbar />
       <Routes>
         <Route
@@ -32,21 +33,12 @@ function App() {
         <Route path="/categories/:category" element={<Products />} />
         <Route path="/categories/:category/:id" element={<ProductDetails />} />
       </Routes>
-    </div>
+      <Footer />
+    </>
   );
 }
 
 export default App;
 
-// Navbar - Search - Cart
-// Hero Slider (swiper.js)
-// featured products
-// a section with button to all products and image on the side (like 'Creative harmonious living' on Stefan's store)
-// Trending Now Products Slider
-// Grid with images for categories
-// CTA Sale 30% OFF
-// footer
+// Search - Cart
 // Add favicon and LOGO
-
-// Try adding filtering and sorting functionalities
-// Add lazyloading to images

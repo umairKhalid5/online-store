@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Image from './Image';
 
 const CallToActionOne = () => {
   return (
@@ -20,8 +21,8 @@ const CallToActionOne = () => {
         </div>
 
         {/* Right */}
-        <div className="hidden md:flex md:w-1/2">
-          <img src="/images/cta/lifestyle.jpg" alt="" />
+        <div className="image-container hidden md:flex md:w-1/2">
+          <Image src="/images/cta/lifestyle.jpg" alt="cta-banner" />
         </div>
       </div>
     </div>

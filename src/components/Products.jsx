@@ -32,7 +32,7 @@ const Products = ({ title }) => {
   if (params.category === 'all') originalProductsArr = allProducts;
   if (title === 'Featured') originalProductsArr = featured;
 
-  const category = params.category;
+  const category = params.category || 'featured';
 
   useEffect(() => {
     let products = [];
@@ -49,7 +49,11 @@ const Products = ({ title }) => {
       );
       setSortBy('descending');
     } else {
-      products = originalProductsArr[1]?.products;
+      if (params.category === 'all')
+        products = originalProductsArr[1]?.products.filter(
+          pr => !pr.id.includes('fe')
+        );
+      else products = originalProductsArr[1]?.products;
       setSortBy('');
     }
 
@@ -109,7 +113,7 @@ const Products = ({ title }) => {
             </div>
 
             {/* Sort */}
-            <div className="flex-1 flex flex-col justify-end items-center gap-1 md:flex-row">
+            <div className="flex flex-col justify-end items-center gap-1 md:flex-row">
               <p className="font-medium text-gray-600">Sort:</p>
               <TextField
                 id="sort-price"

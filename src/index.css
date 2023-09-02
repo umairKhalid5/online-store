@@ -25,7 +25,6 @@
   /* ScrollBar */
   ::-webkit-scrollbar {
     width: 8px;
-    /* border-radius: 25px; */
     transition: background 0.2s ease;
   }
 
@@ -44,13 +43,37 @@
   .btn {
     @apply bg-orange-600 text-white rounded-full px-4 py-3 text-base font-medium border-2 border-orange-600 tracking-wide shadow-md shadow-orange-600/20 hover:bg-white hover:text-orange-600 hover:-translate-y-1 active:translate-y-1 active:shadow-orange-600/30 active:shadow-lg duration-200 sm:text-lg;
   }
+
+  .hero-section {
+    height: calc(100vh - 75px);
+  }
+
   .quantity > * {
     @apply px-7 py-2 flex-1;
   }
+
   .chip {
     @apply bg-gray-700 select-none rounded-full py-1 px-3 capitalize text-white shadow-md cursor-pointer hover:bg-gray-500 duration-200;
   }
+
+  .grid-menu > a {
+    @apply relative;
+  }
+  .grid-menu a::after {
+    @apply absolute content-[""] inset-0 w-full h-full bg-black/30 hover:bg-black/20 transition-colors duration-200;
+  }
+  .grid-menu a h2 {
+    @apply absolute left-1 bottom-2 text-white z-10 text-xl sm:text-4xl sm:left-3 sm:bottom-5;
+  }
+
+  .image-container {
+    @apply overflow-hidden;
+  }
+  .image-container span {
+    @apply w-full h-full;
+  }
 }
+
 /* .swiper-button-prev,
 .swiper-button-next {
   @apply text-indigo-200/80 bg-indigo-700/10 rounded-full w-10 h-10 hover:text-indigo-100 duration-200;
@@ -62,6 +85,12 @@
 .swiper-button-prev::after,
 .swiper-button-next::after {
   @apply text-2xl;
+}
+
+@media (min-width: 320px) {
+  .product-box {
+    width: 270px;
+  }
 }
 @media (max-width: 640px) {
   .swiper-button-prev,
