@@ -6,6 +6,7 @@ export const headphones = [
     products: [
       {
         id: 'h1',
+        category: 'headphones',
         name: 'Party Pal 50',
         price: 56,
         desc: `Immerse in the 20W RMS Stereo Sound with the powerful Party Pal 50 bluetooth speaker. Set the vibes of the party just right with the RGB LEDs. Keep worries at bay and party poolside with IPX5 splash resistant! Get, set, grooving as Party Pal 50 comes with a powerful playback of 4.5 Hrs. Access Instant Voice Assistant and enjoy the multiple connectivity modes- USB, AUX, Bluetooth v5.1, and FM. Coming with Type-C interface, Party Pal 50 is all you need to set the mood just about right. So, where y’all partying at?`,
@@ -20,6 +21,7 @@ export const headphones = [
       },
       {
         id: 'h2',
+        category: 'headphones',
         name: 'Rockerz 451',
         price: 49,
         desc: `Set your mind ablaze with boAt Rockerz 450 — our slick headphones that offer immersive sound quality and add luxury to your sound. Propelled by crystal clear 40mm dynamic drivers, slip into an alternate HD immersive audio reality. The soft cornered matte black finish allows for a comfortable fit, propagated by plush foam in adaptive and adjustable design. Choose your mode, go wireless with Bluetooth V4.2 or connect an aux wire that doesn’t cause any drain on the 300mAh rechargeable lithium battery.`,
@@ -34,6 +36,7 @@ export const headphones = [
       },
       {
         id: 'h3',
+        category: 'headphones',
         name: 'Immortal 1000D',
         price: 50,
         desc: `The game begins here. With Immortal 1000D gaming headphones, don’t just play the game - feel it, live it, and own it. Level up your audio game with 7.1 Channel Surround Sound and Dolby Atmos that unleashes the winning beast inside you. Equipped with 50mm drivers, get a powerful 360° gaming experience like no other. Now, you can conquer every game with a sound that provides position accuracy and abstracts. Your everyday gaming is now double the fun with its RGB LED lights. Its lightweight and ergonomic build ensure you have a comfortable bender with your friends. Don’t look further, level up with Immortal 1000D headphones.`,
@@ -48,6 +51,7 @@ export const headphones = [
       },
       {
         id: 'h4',
+        category: 'headphones',
         name: 'BassHeads 242',
         price: 34,
         desc: `Get ready to redefine fitness fashion and utility with the wired headphone boAt Bassheads 242, it’s time to get your sport on. It carries ear hooks that are crafted from silicon to maximize comfort and a secure fit that allows you to maximize your workouts. Coated with IPX 4 sweat and water protection, the Bassheads 242 emphasizes on all-around ability with 10mm drivers that reproduce a quality sound. Move around freely with the superior coated cable that reaches comfortably from your pocket till your ears. Connect to a number of devices with ease using the 3.5mm straight jack, because there’s no stress, only sweetness when you’re riding the waves on this boAt. You can tune in and out with the pause/play button that can also take calls (With In-line Mic.) and control volume in-between exercise reputations.`,
@@ -62,6 +66,7 @@ export const headphones = [
       },
       {
         id: 'h5',
+        category: 'headphones',
         name: 'Watch Blaze',
         price: 49,
         desc: `Whatever you need to hustle to your goal — now do it Faster with Blaze. It’s powered by Apollo 3 Blue Plus high-performance processor that makes its interface 25% faster. Navigate through your world effortlessly with its 1.75” HD display — the largest by boAt. We understand your hustle, that’s why its Fast Charge technology gives 24HRS of backup with just 10MINS of charge. Keep your fitness in check with heart rate and SpO2 monitoring, daily activity tracker, and 14 sport modes. Smart Watch Blaze — for trailblazers like you.`,
@@ -76,6 +81,7 @@ export const headphones = [
       },
       {
         id: 'h6',
+        category: 'headphones',
         name: 'Airdopes 281 Pro',
         price: 69,
         desc: `Life seems better if the right music is heard the right way. Plug into a blissful listening experience with boAt Airdopes 281 Pro - a truly wireless earbuds powered by boAt Signature Sound. Equipped with ENx™ Technology and four mics, it makes your everyday calling experience hit the roof. Win matches while playing multiplayer games with your friends through its optimum noise cancellation and crystal-clear audio input. So, where are you? Because your perfect audio match is right here - boAt Airdopes 281.`,
@@ -90,6 +96,7 @@ export const headphones = [
       },
       {
         id: 'h7',
+        category: 'headphones',
         name: 'BassHeads 900',
         price: 49,
         desc: `The boAt BassHeads 900 wired headphones come with an amalgamation of style with performance. Now get ready to enjoy your favourite tunes with Super Extra Bass and crystal-clear sound performance with Bass Heads 900 wired headphones. Experience powerful, dynamic sound with punchy bass and clear, natural vocals with the responsive 40mm Neodymium drivers, the drivers effectively reproduce sound equally across the whole audio band. The ergonomic design creates passive attenuation of ambient noise while providing maximum comfort for hours of listening pleasure in a snuggly fit without fatigue. The sleek, lightweight, and compact design makes portability extremely convenient. The foldable and compact Feather Light Headphone weighs even less than 150 g, moreover, the ear cups can be folded for easy, convenient storage.`,
@@ -104,6 +111,7 @@ export const headphones = [
       },
       {
         id: 'h8',
+        category: 'headphones',
         name: 'Rockerz 333',
         price: 33,
         desc: `When your taste in music is so unique, why should your audio wear be any different? Speak your unique style with Rockerz 333 - a bold and powerful wireless earphones for the part of you that wants more. More of sound, more of style, and more of power. Immerse into your jam with boAt Signature Sound and 30 HRS of non stop playback. Let nothing limit your hustle with Dual Pairing that lets you connect two devices at once. Don’t hold back, choose your vibe with Rockerz 333.`,
@@ -128,6 +136,7 @@ export const shoes = [
     products: [
       {
         id: 'sh1',
+        category: 'shoes',
         name: 'RBK Performance',
         price: 56,
         desc: `The Reebok Performance Zig Dynamica 2.0 is designed to provide superior energy and lasting comfort. Featuring a breathable mesh upper and lightweight FuelFoam midsole, these shoes offer enhanced support and cushioning for long days. The eye-catching zigzag midsole design adds a unique and stylish touch.`,
@@ -142,6 +151,7 @@ export const shoes = [
       },
       {
         id: 'sh2',
+        category: 'shoes',
         name: 'AJ4 "BLACK CAT"',
         price: 49,
         desc: `The iconic Jordan 4 Black Cat is back! This classic AJ4 re-release features a sleek black and graphite colorway that debuted in 2006 and is now available on Ohpairpk. Resurrecting a mid-2000s favorite, it's a must-have for any sneakerhead collection.
@@ -156,6 +166,7 @@ export const shoes = [
       },
       {
         id: 'sh3',
+        category: 'shoes',
         name: 'Sketchers Air Cooled',
         price: 50,
         desc: `Premium Quality - Comfortable - Durable`,
@@ -170,6 +181,7 @@ export const shoes = [
       },
       {
         id: 'sh4',
+        category: 'shoes',
         name: 'AJ4 RETRO MILITARY',
         price: 34,
         desc: `The AJ4 RETRO MILITARY BLACK offers a sleek and stylish design, featuring a smooth white leather upper with light grey Durabuck toe wrap and netted TPU inserts. Accenting the upper are Military Black eyelets, heel tabs, and underlays that create an eye-catching contrast. The shoe is completed with a white, black, and light grey sole with a visible Air unit for maximum comfort and cushioning.`,
@@ -184,6 +196,7 @@ export const shoes = [
       },
       {
         id: 'sh5',
+        category: 'shoes',
         name: 'NK Zoom Pegasus 39',
         price: 49,
         desc: `Let the Nike Air Zoom Pegasus 39 help you ascend to new heights, whether you're training or jogging, with its intuitive design. More lightweight up top than the Pegasus 38 and ideal to wear in any season, it has a supportive sensation to help keep your feet contained, while underfoot cushioning and double Zoom Air units (1 more than the Peg 38) give you an extra pop to your step. Your trusted workhorse with wings is back. Time to fly. Running is your daily ritual, with every step taking you closer to your personal goal. `,
@@ -198,6 +211,7 @@ export const shoes = [
       },
       {
         id: 'sh6',
+        category: 'shoes',
         name: 'Airdopes 281 Pro',
         price: 69,
         desc: `Life seems better if the right music is heard the right way. Plug into a blissful listening experience with boAt Airdopes 281 Pro - a truly wireless earbuds powered by boAt Signature Sound. Equipped with ENx™ Technology and four mics, it makes your everyday calling experience hit the roof. Win matches while playing multiplayer games with your friends through its optimum noise cancellation and crystal-clear audio input. So, where are you? Because your perfect audio match is right here - boAt Airdopes 281.`,
@@ -212,6 +226,7 @@ export const shoes = [
       },
       {
         id: 'sh7',
+        category: 'shoes',
         name: 'Balanciaga Trainer',
         price: 49,
         desc: `Balanciaga Trainer is next-level comfort on your walk. This slip-on sneaker features a Stretch Fit engineered mesh upper, lightweight WALK cushioning midsole, and high-rebound Hyper Pillar Technology for added support.`,
@@ -226,6 +241,7 @@ export const shoes = [
       },
       {
         id: 'sh8',
+        category: 'shoes',
         name: 'Airmaxx 720',
         price: 33,
         desc: `Airmaxx 720 Blue White spot in your daily rotation. While the Swoosh could've just painted it grey and called it a day.`,
@@ -239,6 +255,7 @@ export const shoes = [
       },
       {
         id: 'sh9',
+        category: 'shoes',
         name: 'ADIDAS ULTRABOOST 21',
         price: 33,
         desc: `Comfortable And Durable, Just Buy And Wear`,
@@ -263,6 +280,7 @@ export const furniture = [
     products: [
       {
         id: 'fr1',
+        category: 'furniture',
         name: 'Colombo Chair',
         price: 56,
         desc: `This chair comes in a beautiful walnut-colored wood of excellent quality. It has a fine finish and high-quality fabric for your comfort.`,
@@ -276,6 +294,7 @@ export const furniture = [
       },
       {
         id: 'fr2',
+        category: 'furniture',
         name: 'Elba Chair',
         price: 49,
         desc: `Turn your home into a stunning reflection of your unique personality.`,
@@ -289,6 +308,7 @@ export const furniture = [
       },
       {
         id: 'fr3',
+        category: 'furniture',
         name: 'Fresco Chair',
         price: 50,
         desc: `Premium Quality - Comfortable - Durable`,
@@ -302,6 +322,7 @@ export const furniture = [
       },
       {
         id: 'fr4',
+        category: 'furniture',
         name: 'Antico Sienna Chair',
         price: 34,
         desc: `It is finely crafted using our solid-core wood. With its wide surface to serve as a good serving space, it will make your weekend dinners free of a conjured spread! The wood has a smooth finishing for a fine look and the lovely dark shade of brown is bound to make a statement in your dining room!`,
@@ -315,6 +336,7 @@ export const furniture = [
       },
       {
         id: 'fr5',
+        category: 'furniture',
         name: 'Willa Chair',
         price: 49,
         desc: `The armless design gives you plenty of elbow room and allows an easy seating. The lightweight structure makes it easy to move around.`,
@@ -337,6 +359,7 @@ export const garments = [
   {
     products: [
       {
+        category: 'garments',
         id: 'gr1',
         name: 'Black Sweater',
         price: 56,
@@ -350,6 +373,7 @@ export const garments = [
         ],
       },
       {
+        category: 'garments',
         id: 'gr2',
         name: 'MEN T-SHIRT Blue',
         price: 49,
@@ -364,6 +388,7 @@ export const garments = [
         ],
       },
       {
+        category: 'garments',
         id: 'gr3',
         name: 'MEN T-SHIRT White',
         price: 50,
@@ -377,6 +402,7 @@ export const garments = [
         ],
       },
       {
+        category: 'garments',
         id: 'gr4',
         name: 'Polo 705 Black',
         price: 34,
@@ -522,6 +548,17 @@ const allStraightProducts = [
       ...garments[1].products,
       ...furniture[1].products,
       ...featured[1].products,
+    ],
+  },
+];
+
+export const allMainProducts = [
+  {
+    products: [
+      ...headphones[1].products,
+      ...shoes[1].products,
+      ...garments[1].products,
+      ...furniture[1].products,
     ],
   },
 ];

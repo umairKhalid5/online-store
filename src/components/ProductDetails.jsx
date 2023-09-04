@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { allProducts } from '../constants/constants';
 import Image from './Image';
+import { useDispatch } from 'react-redux';
+import { cartSliceActions } from '../store/cart-slice';
 
 const ProductDetails = () => {
+  const dispatch = useDispatch();
   const params = useParams();
 
   const [imgSrc, setImgSrc] = useState(null);
@@ -27,8 +30,8 @@ const ProductDetails = () => {
   };
 
   const addToCart = item => {
-    // TODO: ************************************⤵️
-    console.log(item);
+    // console.log(item);
+    dispatch(cartSliceActions.addItemToCart({ ...item, quantity: itemsCount }));
   };
 
   return (

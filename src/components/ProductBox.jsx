@@ -5,20 +5,20 @@ import { productSliceActions } from '../store/product-slice';
 import Image from './Image.jsx';
 
 const ProductBox = ({ item, category, noZoom }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const onProductClickHandler = item => {
-    dispatch(productSliceActions.selectItem(item));
-  };
+  // const onProductClickHandler = item => {
+  //   dispatch(productSliceActions.selectItem(item));
+  // };
 
   return (
     <Link
       to={`/categories/${category}/${item?.id}`}
-      onClick={() => onProductClickHandler(item)}
+      // onClick={() => onProductClickHandler(item)}
     >
       <div
         className={`group product-box bg-gray-50 border min-w-[100%] border-gray-200 rounded-lg shadow-md p-2 flex flex-col items-center space-y-3 cursor-pointer hover:bg-blue-100 ${
-          !noZoom && 'hover:scale-110'
+          !noZoom && 'sm:hover:scale-110'
         } duration-500 ease-out`}
       >
         {/* Image */}

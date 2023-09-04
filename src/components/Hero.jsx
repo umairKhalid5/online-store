@@ -61,7 +61,7 @@ const Hero = () => {
         /> */}
       </div>
 
-      <div className="flex-1 max-w-screen-2xl mx-auto md:space-x-5 flex items-center relative z-10">
+      <div className="flex-1 max-w-screen-2xl w-full mx-auto flex items-center relative z-10 md:space-x-5">
         {/* Welcome */}
         <div className="hidden md:flex flex-1 flex-col items-center space-y-5 text-center">
           <h2 className="text-3xl font-medium uppercase text-gray-700">

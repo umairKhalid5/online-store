@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link, NavLink } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { allMainProducts } from '../constants/constants';
+import SuggestionsBox from './SuggestionsBox';
+import { cartSliceActions } from '../store/cart-slice';
 
 const navItems = [
   {
@@ -14,12 +17,31 @@ const navItems = [
 ];
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchedItems, setSearchedItems] = useState(null);
+
   const [showMobileNav, setShowMobileNav] = useState(false);
   const quantity = useSelector(state => state.cart.totalQuantity);
 
+  useEffect(() => {
+    if (!searchTerm.trim()) return;
+    const product = allMainProducts[0]?.products.filter(item =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    setSearchedItems(product);
+  }, [searchTerm]);
+
+  const searchHandler = e => setSearchTerm(e.target.value);
+
+  const toggleCartHandler = () =>
+    dispatch(cartSliceActions.toggleCartVisibility());
+
   return (
     <nav
-      className={`w-full sticky top-0 left-0 right-0 px-3 py-4 bg-white shadow-lg z-50 max-w-full duration-200`}
+      className={`w-full sticky top-0 left-0 right-0 px-3 py-4 bg-white shadow-md z-50 max-w-full duration-200`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center space-x-3 sm:space-x-4">
         {/* Logo */}
@@ -42,8 +64,19 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search"
-            className="border w-full border-gray-700 text-gray-700 outline-none rounded-full px-3 py-2 sm:px-4 hover:border-orange-600 focus:border-orange-600 duration-200 focus:shadow-md focus:bg-orange-50"
+            className="border w-full border-orange-300 bg-orange-50 text-gray-700 outline-none rounded-xl px-3 py-2 sm:px-4 hover:border-orange-600 focus:border-orange-500 duration-200 focus:shadow-md focus:shadow-orange-600/10 focus:bg-blue-50"
+            value={searchTerm}
+            onChange={searchHandler}
           />
+
+          {/* Suggestions Box */}
+          {searchedItems?.length >= 1 && searchTerm?.trim() && (
+            <SuggestionsBox
+              items={searchedItems}
+              search={searchTerm}
+              setSearchTerm={setSearchTerm}
+            />
+          )}
         </div>
 
         {/* Nav Items */}
@@ -69,7 +102,11 @@ const Navbar = () => {
         </ul>
         {/* </div> */}
 
-        <button className="text-orange-600 relative">
+        {/* Cart Icon */}
+        <button
+          className="text-orange-600 relative"
+          onClick={toggleCartHandler}
+        >
           <div className="absolute -top-3 -right-3 w-full h-full bg-black-100 text-orange-600 font-semibold text-sm">
             {quantity}
           </div>

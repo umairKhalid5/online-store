@@ -9,13 +9,17 @@ import ItemsSlider from './components/ItemsSlider';
 import CallToActionTwo from './components/CallToActionTwo';
 import GridMenu from './components/GridMenu';
 import Footer from './components/Footer';
-
-// TODO: Work on Search and AutoComplete Feature!
+import { useSelector } from 'react-redux';
+import Cart from './components/Cart';
 
 function App() {
+  const cartItems = useSelector(state => state.cart.items);
+  const showCart = useSelector(state => state.cart.cartVisibility);
+
   return (
     <>
       <Navbar />
+      {showCart && <Cart />}
       <Routes>
         <Route
           path="/"
@@ -40,5 +44,6 @@ function App() {
 
 export default App;
 
-// Search - Cart
+// TODO: Add scrollY to list (cartItems ul List) in Cart. Add delete, + & - buttons for each item in Cart.jsx. Add removeItemsFromCart function. Add an Alert when an item is added or deleted to/from cart. Finally add Firebase backend.
+// Add SearchFeed.jsx. Add search icon within the input element.
 // Add favicon and LOGO
