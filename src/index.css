@@ -56,6 +56,9 @@
   .quantity > * {
     @apply px-7 py-2 flex-1;
   }
+  .cart-quantity > * {
+    @apply px-3 py-1 flex-1;
+  }
 
   .chip {
     @apply bg-gray-700 select-none rounded-full py-1 px-3 capitalize text-white shadow-md cursor-pointer hover:bg-gray-500 duration-200;
@@ -76,6 +79,29 @@
   }
   .image-container span {
     @apply w-full h-full;
+  }
+
+  /* Animation Bump */
+  .bump > svg {
+    animation: bump 300ms ease-out;
+  }
+
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(0.9);
+    }
+    30% {
+      transform: scale(1.4);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 }
 

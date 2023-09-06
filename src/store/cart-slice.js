@@ -9,9 +9,12 @@ const cartSlice = createSlice({
     totalPrice: 0,
   },
   reducers: {
+    // Toggle Cart Visibility
     toggleCartVisibility(state) {
       state.cartVisibility = !state.cartVisibility;
     },
+
+    // Add Item
     addItemToCart(state, action) {
       const newItem = action.payload;
 
@@ -22,6 +25,29 @@ const cartSlice = createSlice({
 
       state.totalQuantity += newItem.quantity;
       state.totalPrice += newItem.quantity * newItem.price;
+    },
+
+    // Remove single Item
+    removeItemFromCart(state, action) {
+      const newItem = action.payload;
+
+      const existingItem = state.items.find(el => el.id === newItem.id);
+      state.totalQuantity--;
+
+      if (existingItem.quantity === 1)
+        state.items = state.items.filter(el => el.id !== newItem.id);
+      else existingItem.quantity -= newItem.quantity;
+
+      state.totalPrice -= newItem.price;
+    },
+
+    // Remove Product
+    removeProduct(state, action) {
+      const newItem = action.payload;
+      state.totalQuantity -= newItem.quantity;
+      state.items = state.items.filter(el => el.id !== newItem.id);
+
+      state.totalPrice -= newItem.quantity * newItem.price;
     },
   },
 });

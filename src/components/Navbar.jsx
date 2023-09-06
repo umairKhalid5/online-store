@@ -21,9 +21,21 @@ const Navbar = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [searchedItems, setSearchedItems] = useState(null);
+  const [cartUpdated, setCartUpdated] = useState(false);
 
   const [showMobileNav, setShowMobileNav] = useState(false);
+
   const quantity = useSelector(state => state.cart.totalQuantity);
+  const cartItems = useSelector(state => state.cart.items);
+
+  useEffect(() => {
+    if (cartItems.length === 0) return;
+    setCartUpdated(true);
+
+    const timer = setTimeout(() => setCartUpdated(false), 1000);
+
+    return () => clearTimeout(timer);
+  }, [cartItems]);
 
   useEffect(() => {
     if (!searchTerm.trim()) return;
@@ -104,7 +116,7 @@ const Navbar = () => {
 
         {/* Cart Icon */}
         <button
-          className="text-orange-600 relative"
+          className={`text-orange-600 relative ${cartUpdated && 'bump'}`}
           onClick={toggleCartHandler}
         >
           <div className="absolute -top-3 -right-3 w-full h-full bg-black-100 text-orange-600 font-semibold text-sm">

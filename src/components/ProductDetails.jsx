@@ -4,6 +4,7 @@ import { allProducts } from '../constants/constants';
 import Image from './Image';
 import { useDispatch } from 'react-redux';
 import { cartSliceActions } from '../store/cart-slice';
+import { uiSliceActions } from '../store/ui-slice';
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const ProductDetails = () => {
   const addToCart = item => {
     // console.log(item);
     dispatch(cartSliceActions.addItemToCart({ ...item, quantity: itemsCount }));
+    dispatch(uiSliceActions.toggleAlert('added to'));
   };
 
   return (
@@ -40,7 +42,7 @@ const ProductDetails = () => {
         {/* Left - Images */}
         <div className="w-full flex flex-col space-y-3 md:w-1/3">
           {/* Main Image */}
-          <div className="image-container w-full aspect-square bg-gray-100 cursor-pointer rounded-lg overflow-hidden hover:bg-blue-100 duration-500 ease-out">
+          <div className="image-container w-full aspect-square bg-gray-100 rounded-lg overflow-hidden hover:bg-blue-100 duration-500 ease-out">
             <Image
               src={imgSrc || selectedItem.image}
               alt={selectedItem.name}

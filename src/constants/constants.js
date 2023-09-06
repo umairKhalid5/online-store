@@ -428,6 +428,7 @@ export const featured = [
     products: [
       {
         id: 'fe1',
+        category: 'headphones',
         name: 'Immortal 1000D',
         price: 50,
         desc: `The game begins here. With Immortal 1000D gaming headphones, don’t just play the game - feel it, live it, and own it. Level up your audio game with 7.1 Channel Surround Sound and Dolby Atmos that unleashes the winning beast inside you. Equipped with 50mm drivers, get a powerful 360° gaming experience like no other. Now, you can conquer every game with a sound that provides position accuracy and abstracts. Your everyday gaming is now double the fun with its RGB LED lights. Its lightweight and ergonomic build ensure you have a comfortable bender with your friends. Don’t look further, level up with Immortal 1000D headphones.`,
@@ -442,6 +443,7 @@ export const featured = [
       },
       {
         id: 'fe2',
+        category: 'shoes',
         name: 'NK Zoom Pegasus 39',
         price: 49,
         desc: `Let the Nike Air Zoom Pegasus 39 help you ascend to new heights, whether you're training or jogging, with its intuitive design. More lightweight up top than the Pegasus 38 and ideal to wear in any season, it has a supportive sensation to help keep your feet contained, while underfoot cushioning and double Zoom Air units (1 more than the Peg 38) give you an extra pop to your step. Your trusted workhorse with wings is back. Time to fly. Running is your daily ritual, with every step taking you closer to your personal goal. `,
@@ -456,6 +458,7 @@ export const featured = [
       },
       {
         id: 'fe3',
+        category: 'garments',
         name: 'MEN T-SHIRT White',
         price: 50,
         desc: `Soft Feeling for Great Comfort`,
@@ -469,6 +472,7 @@ export const featured = [
       },
       {
         id: 'fe4',
+        category: 'headphones',
         name: 'Watch Blaze',
         price: 49,
         desc: `Whatever you need to hustle to your goal — now do it Faster with Blaze. It’s powered by Apollo 3 Blue Plus high-performance processor that makes its interface 25% faster. Navigate through your world effortlessly with its 1.75” HD display — the largest by boAt. We understand your hustle, that’s why its Fast Charge technology gives 24HRS of backup with just 10MINS of charge. Keep your fitness in check with heart rate and SpO2 monitoring, daily activity tracker, and 14 sport modes. Smart Watch Blaze — for trailblazers like you.`,
@@ -483,6 +487,7 @@ export const featured = [
       },
       {
         id: 'fe5',
+        category: 'shoes',
         name: 'Airdopes 281 Pro',
         price: 69,
         desc: `Life seems better if the right music is heard the right way. Plug into a blissful listening experience with boAt Airdopes 281 Pro - a truly wireless earbuds powered by boAt Signature Sound. Equipped with ENx™ Technology and four mics, it makes your everyday calling experience hit the roof. Win matches while playing multiplayer games with your friends through its optimum noise cancellation and crystal-clear audio input. So, where are you? Because your perfect audio match is right here - boAt Airdopes 281.`,
@@ -497,6 +502,7 @@ export const featured = [
       },
       {
         id: 'fe6',
+        category: 'furniture',
         name: 'Fresco Chair',
         price: 50,
         desc: `Premium Quality - Comfortable - Durable`,
@@ -510,6 +516,7 @@ export const featured = [
       },
       {
         id: 'fe7',
+        category: 'garments',
         name: 'Polo 705 Black',
         price: 34,
         desc: `Layer up in comfort!`,
@@ -524,6 +531,7 @@ export const featured = [
       },
       {
         id: 'fe8',
+        category: 'headphones',
         name: 'Airdopes 281 Pro',
         price: 69,
         desc: `Life seems better if the right music is heard the right way. Plug into a blissful listening experience with boAt Airdopes 281 Pro - a truly wireless earbuds powered by boAt Signature Sound. Equipped with ENx™ Technology and four mics, it makes your everyday calling experience hit the roof. Win matches while playing multiplayer games with your friends through its optimum noise cancellation and crystal-clear audio input. So, where are you? Because your perfect audio match is right here - boAt Airdopes 281.`,

@@ -11,6 +11,7 @@ import GridMenu from './components/GridMenu';
 import Footer from './components/Footer';
 import { useSelector } from 'react-redux';
 import Cart from './components/Cart';
+import Alert from './components/UI/Alert';
 
 function App() {
   const cartItems = useSelector(state => state.cart.items);
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <>
+      <Alert />
       <Navbar />
       {showCart && <Cart />}
       <Routes>
@@ -44,6 +46,6 @@ function App() {
 
 export default App;
 
-// TODO: Add scrollY to list (cartItems ul List) in Cart. Add delete, + & - buttons for each item in Cart.jsx. Add removeItemsFromCart function. Add an Alert when an item is added or deleted to/from cart. Finally add Firebase backend.
-// Add SearchFeed.jsx. Add search icon within the input element.
-// Add favicon and LOGO
+// TODO: Add Firebase backend.
+// TODO: Add SearchFeed.jsx. Add search icon within the input element.
+// TODO: Add favicon and LOGO

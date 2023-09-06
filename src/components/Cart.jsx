@@ -1,9 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartSliceActions } from '../store/cart-slice';
+import Image from './Image';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import CloseIcon from '@mui/icons-material/Close';
-import Image from './Image';
+// import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import { Link } from 'react-router-dom';
+import { uiSliceActions } from '../store/ui-slice';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -11,9 +15,20 @@ const Cart = () => {
   const cartItems = useSelector(state => state.cart.items);
   const itemsCount = useSelector(state => state.cart.totalQuantity);
   const totalPrice = useSelector(state => state.cart.totalPrice);
-  console.log(cartItems);
+  // console.log(cartItems);
 
   const hideCart = () => dispatch(cartSliceActions.toggleCartVisibility());
+
+  const updateCart = (dir, item) => {
+    if (dir === 'add')
+      dispatch(cartSliceActions.addItemToCart({ ...item, quantity: 1 }));
+
+    if (itemsCount < 1) return;
+    if (dir === 'remove')
+      dispatch(cartSliceActions.removeItemFromCart({ ...item, quantity: 1 }));
+
+    if (dir === 'deleteItem') dispatch(cartSliceActions.removeProduct(item));
+  };
 
   return (
     <>
@@ -40,7 +55,7 @@ const Cart = () => {
       )}
 
       {cartItems.length > 0 && (
-        <div className="mx-auto fixed left-1 right-1 top-[50%] -translate-y-[50%] rounded-lg overflow-hidden bg-white px-5 py-8 z-[60] sm:max-w-3xl">
+        <div className="mx-auto fixed left-1 right-1 top-[50%] -translate-y-[50%] rounded-lg overflow-hidden bg-white px-1 py-4 z-[60] sm:px-5 sm:py-8 sm:max-w-3xl">
           <div className="flex flex-col gap-5">
             {/* Back */}
             <div className="font-medium flex w-full gap-1 items-center">
@@ -55,40 +70,72 @@ const Cart = () => {
             </div>
 
             {/* Items */}
-            <ul className="suggestions-box max-h-[80vh] w-full rounded-md overflow-hidden flex flex-col items-center justify-between gap-3 overflow-y-auto">
+            <ul className="suggestions-box max-h-96 w-full rounded-md overflow-hidden flex flex-col items-center justify-between gap-3 overflow-y-auto">
               {cartItems.map(item => (
                 <li
                   key={item?.image}
-                  className="w-full px-2 flex py-2 gap-3 justify-between border rounded-md border-gray-400 bg-gray-100 hover:bg-blue-50 transition-colors"
+                  className="w-full px-1 flex py-2 gap-3 justify-between border rounded-md border-gray-400 bg-gray-100 hover:bg-blue-50 transition-colors sm:px-2"
                 >
                   {/* :Left */}
-                  <div className="flex gap-3">
-                    <Image
-                      src={item?.image}
-                      alt={item?.name}
-                      className="h-14 w-14 rounded-lg object-cover bg-blue-100 sm:h-24 sm:w-24"
-                      opacity
-                    />
-                    <div>
-                      <p className="text-gray-600 font-medium sm:text-lg">
-                        {item?.name}
-                      </p>
+                  <div className="flex gap-1 items-center sm:gap-3">
+                    <Link
+                      to={`/categories/${item?.category}/${item?.id}`}
+                      onClick={hideCart}
+                    >
+                      <Image
+                        src={item?.image}
+                        alt={item?.name}
+                        className="h-20 w-20 rounded-lg object-cover bg-blue-100 sm:h-24 sm:w-24"
+                        opacity
+                      />
+                    </Link>
+                    <div className="flex flex-col items-start space-y-1">
+                      <Link to={`/categories/${item?.category}/${item?.id}`}>
+                        <p
+                          className="text-gray-600 font-medium sm:text-lg"
+                          onClick={hideCart}
+                        >
+                          {item?.name}
+                        </p>
+                      </Link>
                       <p className="text-orange-500 font-medium sm:text-lg">
                         (${item?.price})
                       </p>
-                      <p className="text-orange-500 font-medium sm:text-lg">
+                      {/* Add To Cart & "+" "-" Buttons*/}
+                      <div className="flex flex-col gap-1 text-gray-600 font-medium md:justify-normal sm:flex-row sm:items-center">
+                        <span className="cart-quantity border-2 rounded-md">
+                          <button
+                            className="border-r-2 text-red-400 bg-gray-50 hover:bg-orange-100 duration-200"
+                            onClick={() => updateCart('remove', item)}
+                          >
+                            -
+                          </button>
+                          <span>{item?.quantity}</span>
+                          <button
+                            className="border-l-2 text-green-400 bg-gray-50 hover:bg-orange-100 duration-200"
+                            onClick={() => updateCart('add', item)}
+                          >
+                            +
+                          </button>
+                        </span>
+                      </div>
+                      {/* <p className="text-orange-500 font-medium sm:text-lg">
                         Add + and - Buttons
-                      </p>
+                      </p> */}
                     </div>
                   </div>
 
                   {/* Right */}
-                  <div className="flex flex-col gap-3 items-center">
+                  <div className="flex flex-col gap-3 items-end justify-between">
+                    <div
+                      className="font-semibold text-lg sm:text-xl text-orange-600 cursor-pointer"
+                      onClick={() => updateCart('deleteItem', item)}
+                    >
+                      {/* {item?.quantity}-Add DELETE button here */}
+                      <DeleteOutlinedIcon sx={{ fontSize: '1.8rem' }} />
+                    </div>
                     <p className="text-orange-600 font-semibold text-lg sm:text-xl">
                       ${item.quantity * item.price}
-                    </p>
-                    <p className="text-gray-800 font-semibold text-lg sm:text-xl">
-                      {item?.quantity}-Add DELETE button here
                     </p>
                   </div>
                 </li>
@@ -97,9 +144,9 @@ const Cart = () => {
 
             {/* CTA */}
             <div className="flex flex-col items center gap-3">
-              <div className="flex justify-between items-center gap-3 border-b py-2">
+              <div className="flex justify-end items-center gap-3 border-b sm:py-2">
                 <p className="text-gray-800 font-semibold text-xl sm:text-2xl">
-                  Total Price
+                  Subtotal:
                 </p>
                 <p className="text-orange-600 font-semibold text-xl sm:text-3xl">
                   ${totalPrice}
@@ -107,12 +154,14 @@ const Cart = () => {
               </div>
               <div className="flex justify-end items-center gap-3 py-2 w-full">
                 <button
-                  className="btn bg-gray-700 border-gray-700 hover:text-gray-700"
+                  className="btn px-3 py-2 bg-gray-700 border-gray-700 hover:text-gray-700 sm:px-4 sm:py-3"
                   onClick={hideCart}
                 >
                   Go Back
                 </button>
-                <button className="btn ">Confirm Order</button>
+                <button className="btn px-3 py-2 sm:px-4 sm:py-3">
+                  Confirm Order
+                </button>
               </div>
             </div>
           </div>
