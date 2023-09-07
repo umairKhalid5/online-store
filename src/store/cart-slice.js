@@ -7,11 +7,27 @@ const cartSlice = createSlice({
     totalQuantity: 0,
     cartVisibility: false,
     totalPrice: 0,
+    isChanged: false,
   },
   reducers: {
     // Toggle Cart Visibility
     toggleCartVisibility(state) {
       state.cartVisibility = !state.cartVisibility;
+    },
+
+    // Reset Cart
+    // resetCart(state) {
+    //   state.items = [];
+    //   state.totalQuantity = 0;
+    //   state.totalPrice = 0;
+    //   state.isChanged = false;
+    // },
+
+    // Replace Cart
+    replaceCart(state, action) {
+      state.items = action.payload.items;
+      state.totalQuantity = action.payload.totalQuantity;
+      state.totalPrice = action.payload.totalPrice;
     },
 
     // Add Item
@@ -25,6 +41,7 @@ const cartSlice = createSlice({
 
       state.totalQuantity += newItem.quantity;
       state.totalPrice += newItem.quantity * newItem.price;
+      state.isChanged = true;
     },
 
     // Remove single Item
@@ -39,6 +56,7 @@ const cartSlice = createSlice({
       else existingItem.quantity -= newItem.quantity;
 
       state.totalPrice -= newItem.price;
+      state.isChanged = true;
     },
 
     // Remove Product
@@ -48,6 +66,7 @@ const cartSlice = createSlice({
       state.items = state.items.filter(el => el.id !== newItem.id);
 
       state.totalPrice -= newItem.quantity * newItem.price;
+      state.isChanged = true;
     },
   },
 });

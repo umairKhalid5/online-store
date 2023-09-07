@@ -5,12 +5,18 @@ const uiSlice = createSlice({
   initialState: {
     showAlert: false,
     alertMsg: '',
+    alertType: '',
   },
   reducers: {
     toggleAlert(state, action) {
-      // console.log(action.payload);
-      state.showAlert = !state.showAlert;
-      if (action.payload) state.alertMsg = action.payload;
+      const msg = action.payload.msg;
+      const type = action.payload.alertType;
+      if (!msg.trim()) state.showAlert = false;
+      else {
+        state.showAlert = true;
+        state.alertMsg = msg;
+        state.alertType = type;
+      }
     },
   },
 });

@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { cartSliceActions } from '../store/cart-slice';
-import Image from './Image';
+import { cartSliceActions } from '../../store/cart-slice';
+import Image from '../Image';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import CloseIcon from '@mui/icons-material/Close';
-// import DeleteIcon from '@mui/icons-material/Delete';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-import { Link } from 'react-router-dom';
-import { uiSliceActions } from '../store/ui-slice';
+import { Link, useNavigate } from 'react-router-dom';
+import { sendCartData } from '../../store/cart-actions';
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const cartItems = useSelector(state => state.cart.items);
+  const cart = useSelector(state => state.cart);
   const itemsCount = useSelector(state => state.cart.totalQuantity);
   const totalPrice = useSelector(state => state.cart.totalPrice);
   // console.log(cartItems);
@@ -29,6 +30,32 @@ const Cart = () => {
 
     if (dir === 'deleteItem') dispatch(cartSliceActions.removeProduct(item));
   };
+
+  const saveData = () => {
+    dispatch(cartSliceActions.toggleCartVisibility());
+    navigate('/checkout');
+    // dispatch(
+    //   sendCartData({
+    //     items: cartItems,
+    //     totalQuantity: itemsCount,
+    //     totalPrice,
+    //   })
+    // );
+  };
+
+  // useEffect(() => {
+  //   console.log(cart);
+  //   if (cart.isChanged && cartItems.length === 0) {
+  //     dispatch(
+  //       sendCartData({
+  //         items: cartItems,
+  //         totalQuantity: itemsCount,
+  //         totalPrice,
+  //       })
+  //     );
+  //     dispatch(cartSliceActions.resetCart());
+  //   }
+  // }, [cart.isChanged, cartItems.length, dispatch]);
 
   return (
     <>
@@ -159,8 +186,11 @@ const Cart = () => {
                 >
                   Go Back
                 </button>
-                <button className="btn px-3 py-2 sm:px-4 sm:py-3">
-                  Confirm Order
+                <button
+                  className="btn px-3 py-2 sm:px-4 sm:py-3"
+                  onClick={saveData}
+                >
+                  Proceed
                 </button>
               </div>
             </div>

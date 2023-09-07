@@ -95,7 +95,7 @@ const Hero = () => {
           {swiperData.map(item => (
             <SwiperSlide
               key={item.image}
-              className="relative before:absolute before:inset-0 before:bg-gray-50/30 before:content-[''] hover:before:bg-gray-50/10 before:duration-200 before:z-[1] select-none cursor-grab"
+              className="relative before:absolute before:inset-0 before:content-[''] before:bg-gray-50/10 sm:before:bg-gray-50/30 sm:hover:before:bg-gray-50/10 sm:before:duration-200 before:z-[1] select-none cursor-grab"
             >
               <Image
                 src={item.image}
