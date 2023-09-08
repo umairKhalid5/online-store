@@ -8,6 +8,7 @@ const cartSlice = createSlice({
     cartVisibility: false,
     totalPrice: 0,
     isChanged: false,
+    isOrdered: false,
   },
   reducers: {
     // Toggle Cart Visibility
@@ -15,13 +16,19 @@ const cartSlice = createSlice({
       state.cartVisibility = !state.cartVisibility;
     },
 
+    // Confirm Order
+    confirmOrder(state) {
+      state.isOrdered = !state.isOrdered;
+    },
+
     // Reset Cart
-    // resetCart(state) {
-    //   state.items = [];
-    //   state.totalQuantity = 0;
-    //   state.totalPrice = 0;
-    //   state.isChanged = false;
-    // },
+    resetCart(state) {
+      state.items = [];
+      state.totalQuantity = 0;
+      state.totalPrice = 0;
+      state.isChanged = false;
+      state.cartVisibility = false;
+    },
 
     // Replace Cart
     replaceCart(state, action) {

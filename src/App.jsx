@@ -14,6 +14,7 @@ import {
   Footer,
   Cart,
   DetailsForm,
+  OrderConfirmation,
 } from './components';
 import { getCartData, sendCartData } from './store/cart-actions';
 
@@ -24,6 +25,7 @@ function App() {
   const cartItems = useSelector(state => state.cart.items);
   const totalQuantity = useSelector(state => state.cart.totalQuantity);
   const totalPrice = useSelector(state => state.cart.totalPrice);
+  const isOrdered = useSelector(state => state.cart.isOrdered);
 
   const showCart = useSelector(state => state.cart.cartVisibility);
   const showAlert = useSelector(state => state.ui.showAlert);
@@ -33,7 +35,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (cart.isChanged)
+    if (cart.isChanged || isOrdered)
       dispatch(
         sendCartData({
           items: cartItems,
@@ -48,6 +50,7 @@ function App() {
       {showAlert && <Alert />}
       <Navbar />
       {showCart && <Cart />}
+      {isOrdered && <OrderConfirmation />}
       <Routes>
         <Route
           path="/"
@@ -65,7 +68,7 @@ function App() {
         <Route path="/categories/:category" element={<Products />} />
         <Route path="/categories/:category/:id" element={<ProductDetails />} />
 
-        <Route path="/checkout" element={<DetailsForm />} />
+        {!isOrdered && <Route path="/checkout" element={<DetailsForm />} />}
 
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
@@ -76,6 +79,4 @@ function App() {
 
 export default App;
 
-// TODO: Start working on personal info & shipping details form. Set Cart back to its initial state upon successful order placement.
 // TODO: Add SearchFeed.jsx. Add search icon within the input element.
-// TODO: Add favicon and LOGO

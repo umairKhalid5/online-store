@@ -9,4 +9,5 @@ export { default as CallToActionTwo } from './CallToActionTwo';
 export { default as GridMenu } from './GridMenu';
 export { default as Footer } from './Footer';
 export { default as DetailsForm } from './DetailsForm';
+export { default as OrderConfirmation } from './OrderConfirmation';
 export { default as Cart } from './Cart/Cart';

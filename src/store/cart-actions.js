@@ -3,12 +3,12 @@ import { uiSliceActions } from './ui-slice';
 
 export const getCartData = () => {
   return async dispatch => {
-    dispatch(
-      uiSliceActions.toggleAlert({
-        msg: 'Looking for previously saved Items',
-        alertType: 'info',
-      })
-    );
+    // dispatch(
+    //   uiSliceActions.toggleAlert({
+    //     msg: 'Looking for previously saved items',
+    //     alertType: 'info',
+    //   })
+    // );
 
     const getData = async () => {
       const res = await fetch(
@@ -24,13 +24,13 @@ export const getCartData = () => {
     try {
       const cartData = await getData();
 
-      if (!cartData?.items?.length)
-        return dispatch(
-          uiSliceActions.toggleAlert({
-            msg: 'No items found',
-            alertType: 'info',
-          })
-        );
+      if (!cartData?.items?.length) return;
+      // return dispatch(
+      //   uiSliceActions.toggleAlert({
+      //     msg: 'No items found',
+      //     alertType: 'info',
+      //   })
+      // );
 
       dispatch(
         cartSliceActions.replaceCart({
@@ -47,7 +47,6 @@ export const getCartData = () => {
         })
       );
     } catch (error) {
-      console.log(error);
       dispatch(
         uiSliceActions.toggleAlert({
           msg: 'Fetching Cart Data Failed',
@@ -60,20 +59,20 @@ export const getCartData = () => {
 
 export const sendCartData = cart => {
   return async dispatch => {
-    if (cart.items.length)
-      dispatch(
-        uiSliceActions.toggleAlert({
-          msg: 'Updating Cart...',
-          alertType: 'info',
-        })
-      );
-    else
-      dispatch(
-        uiSliceActions.toggleAlert({
-          msg: 'Emptying Cart...',
-          alertType: 'info',
-        })
-      );
+    // if (cart.items.length)
+    dispatch(
+      uiSliceActions.toggleAlert({
+        msg: 'Updating Cart...',
+        alertType: 'info',
+      })
+    );
+    // else
+    //   dispatch(
+    //     uiSliceActions.toggleAlert({
+    //       msg: 'Emptying Cart...',
+    //       alertType: 'info',
+    //     })
+    //   );
 
     const sendRequest = async () => {
       const res = await fetch(
@@ -92,7 +91,7 @@ export const sendCartData = cart => {
 
     try {
       await sendRequest();
-      if (cart.items.length)
+      if (cart?.items?.length)
         dispatch(
           uiSliceActions.toggleAlert({
             msg: 'Cart Updated!',
@@ -107,10 +106,61 @@ export const sendCartData = cart => {
           })
         );
     } catch (error) {
-      // console.log(error);
       dispatch(
         uiSliceActions.toggleAlert({
           msg: `Could not update Cart`,
+          alertType: 'error',
+        })
+      );
+    }
+  };
+};
+
+export const sendOrder = orderData => {
+  return async dispatch => {
+    dispatch(
+      uiSliceActions.toggleAlert({
+        msg: 'Placing Order ....',
+        alertType: 'info',
+      })
+    );
+
+    const sendOrderData = async () => {
+      const res = await fetch(
+        'https://brandista-c8004-default-rtdb.firebaseio.com/orders.json',
+        {
+          method: 'POST',
+          body: JSON.stringify(orderData),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      if (!res.ok) throw new Error('Sending cart data failed');
+    };
+
+    try {
+      await sendOrderData();
+      // dispatch(cartSliceActions.resetCart());
+      dispatch(
+        cartSliceActions.replaceCart({
+          items: [],
+          totalQuantity: 0,
+          totalPrice: 0,
+        })
+      );
+      dispatch(cartSliceActions.confirmOrder());
+      dispatch(
+        uiSliceActions.toggleAlert({
+          msg: 'Order successfully placed!',
+          alertType: 'success',
+        })
+      );
+    } catch (error) {
+      dispatch(
+        uiSliceActions.toggleAlert({
+          msg: 'Could not place order',
           alertType: 'error',
         })
       );

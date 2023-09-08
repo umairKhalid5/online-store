@@ -32,14 +32,7 @@ const ProductDetails = () => {
   };
 
   const addToCart = item => {
-    // console.log(item);
     dispatch(cartSliceActions.addItemToCart({ ...item, quantity: itemsCount }));
-    // dispatch(
-    //   uiSliceActions.toggleAlert({
-    //     msg: 'Item added to cart',
-    //     alertType: 'success',
-    //   })
-    // );
   };
 
   return (

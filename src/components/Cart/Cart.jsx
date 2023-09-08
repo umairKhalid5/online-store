@@ -34,28 +34,7 @@ const Cart = () => {
   const saveData = () => {
     dispatch(cartSliceActions.toggleCartVisibility());
     navigate('/checkout');
-    // dispatch(
-    //   sendCartData({
-    //     items: cartItems,
-    //     totalQuantity: itemsCount,
-    //     totalPrice,
-    //   })
-    // );
   };
-
-  // useEffect(() => {
-  //   console.log(cart);
-  //   if (cart.isChanged && cartItems.length === 0) {
-  //     dispatch(
-  //       sendCartData({
-  //         items: cartItems,
-  //         totalQuantity: itemsCount,
-  //         totalPrice,
-  //       })
-  //     );
-  //     dispatch(cartSliceActions.resetCart());
-  //   }
-  // }, [cart.isChanged, cartItems.length, dispatch]);
 
   return (
     <>

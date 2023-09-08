@@ -103,6 +103,16 @@
       transform: scale(1);
     }
   }
+
+  .form input {
+    @apply bg-zinc-200 p-3 rounded-md outline-blue-200 border border-gray-300 focus:border-blue-200 focus:bg-zinc-100 transition-colors duration-200;
+  }
+  .form label {
+    @apply text-gray-700;
+  }
+  .form label span {
+    @apply text-red-600;
+  }
 }
 
 /* .swiper-button-prev,
