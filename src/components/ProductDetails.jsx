@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { allProducts } from '../constants/constants';
+import { useNavigate, useParams } from 'react-router-dom';
+import { allMainProducts } from '../constants/constants';
 import Image from './Image';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartSliceActions } from '../store/cart-slice';
@@ -8,13 +8,16 @@ import { uiSliceActions } from '../store/ui-slice';
 import { sendCartData } from '../store/cart-actions';
 
 const ProductDetails = () => {
+  window.scrollTo({ top: 0, left: 0 });
+
   const dispatch = useDispatch();
   const params = useParams();
+  const navigate = useNavigate();
 
   const [imgSrc, setImgSrc] = useState(null);
   const [itemsCount, setItemsCount] = useState(1);
 
-  const selectedItem = allProducts[1]?.products?.filter(
+  const selectedItem = allMainProducts[1]?.products?.filter(
     item => item.id === params?.id
   )[0];
 
@@ -31,13 +34,17 @@ const ProductDetails = () => {
     if (dir === 'remove' && itemsCount > 1) setItemsCount(prev => (prev -= 1));
   };
 
-  const addToCart = item => {
+  const addToCart = item =>
     dispatch(cartSliceActions.addItemToCart({ ...item, quantity: itemsCount }));
+
+  const buyNow = item => {
+    dispatch(cartSliceActions.addItemToCart({ ...item, quantity: itemsCount }));
+    navigate('/checkout');
   };
 
   return (
-    <div className="w-full py-10">
-      <div className="max-w-7xl mx-auto px-3 p-2 gap-8 flex flex-col start justify-between md:gap-5 md:p-5 md:flex-row">
+    <div className="w-full py-10 flex items-center take-screen">
+      <div className="max-w-7xl mx-auto px-3 p-2 gap-8 flex-1 flex flex-col start justify-between md:gap-5 md:p-5 md:flex-row">
         {/* Left - Images */}
         <div className="w-full flex flex-col space-y-3 md:w-1/3">
           {/* Main Image */}
@@ -131,7 +138,12 @@ const ProductDetails = () => {
             >
               Add to Cart
             </button>
-            <button className="btn w-full mt-3 sm:w-1/3">Buy Now</button>
+            <button
+              className="btn w-full sm:w-1/3"
+              onClick={() => buyNow(selectedItem)}
+            >
+              Buy Now
+            </button>
           </div>
         </div>
       </div>

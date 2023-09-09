@@ -44,7 +44,7 @@ const Alert = () => {
           alertType: '',
         })
       );
-    }, 2000);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);
@@ -52,11 +52,6 @@ const Alert = () => {
   }, [msg, showAlert]);
 
   return (
-    // <div
-    //   className={`fixed ${
-    //     msg.trim() && showAlert ? 'top-5' : '-top-[120%]'
-    //   } left-[50%] -translate-x-[50%] w-[98%] flex items-center justify-center gap-1 px-3 py-3 rounded-lg text-green-400 z-[100] bg-gray-800/90 transition-all duration-500 sm:px-14 sm:w-max sm:gap-3`}
-    // >
     <div
       className={`${classes} fixed top-5 left-[50%] -translate-x-[50%] w-[98%] flex items-center justify-center gap-1 px-3 py-3 rounded-lg z-[100] bg-gray-800/90 transition-all duration-500 sm:px-14 sm:w-max sm:gap-3`}
     >

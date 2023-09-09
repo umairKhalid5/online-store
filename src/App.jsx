@@ -15,6 +15,8 @@ import {
   Cart,
   DetailsForm,
   OrderConfirmation,
+  SearchFeed,
+  ScrollTopBtn,
 } from './components';
 import { getCartData, sendCartData } from './store/cart-actions';
 
@@ -51,6 +53,7 @@ function App() {
       <Navbar />
       {showCart && <Cart />}
       {isOrdered && <OrderConfirmation />}
+
       <Routes>
         <Route
           path="/"
@@ -68,15 +71,16 @@ function App() {
         <Route path="/categories/:category" element={<Products />} />
         <Route path="/categories/:category/:id" element={<ProductDetails />} />
 
-        {!isOrdered && <Route path="/checkout" element={<DetailsForm />} />}
+        {/* {!isOrdered && <Route path="/checkout" element={<DetailsForm />} />} */}
+        <Route path="/checkout" element={<DetailsForm />} />
 
+        <Route path="/search/:searchTerm" element={<SearchFeed />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
       <Footer />
+      <ScrollTopBtn />
     </>
   );
 }
 
 export default App;
-
-// TODO: Add SearchFeed.jsx. Add search icon within the input element.

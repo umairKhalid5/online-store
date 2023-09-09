@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useDispatch, useSelector } from 'react-redux';
 import { allMainProducts } from '../constants/constants';
 import SuggestionsBox from './SuggestionsBox';
 import { cartSliceActions } from '../store/cart-slice';
+import SearchIcon from '@mui/icons-material/Search';
 
 const navItems = [
   {
@@ -18,10 +19,12 @@ const navItems = [
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [searchTerm, setSearchTerm] = useState('');
   const [searchedItems, setSearchedItems] = useState(null);
   const [cartUpdated, setCartUpdated] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   const [showMobileNav, setShowMobileNav] = useState(false);
 
@@ -39,17 +42,43 @@ const Navbar = () => {
 
   useEffect(() => {
     if (!searchTerm.trim()) return;
-    const product = allMainProducts[0]?.products.filter(item =>
+    const product = allMainProducts[1]?.products?.filter(item =>
       item.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     setSearchedItems(product);
+    setShowSuggestions(true);
   }, [searchTerm]);
+
+  useEffect(() => {
+    const hideSuggestionBox = e => {
+      if (
+        e.target.id !== 'search-container' &&
+        !e.target.closest('div').id !== 'search-container'
+      )
+        setShowSuggestions(false);
+    };
+
+    window.addEventListener('click', hideSuggestionBox);
+
+    return () => {
+      window.removeEventListener('click', hideSuggestionBox);
+    };
+  }, []);
 
   const searchHandler = e => setSearchTerm(e.target.value);
 
   const toggleCartHandler = () =>
     dispatch(cartSliceActions.toggleCartVisibility());
+
+  const submitHandler = e => {
+    e.preventDefault();
+    if (!searchTerm.trim()) return;
+
+    navigate(`/search/${searchTerm}`);
+    setShowSuggestions(false);
+    setSearchTerm('');
+  };
 
   return (
     <nav
@@ -58,7 +87,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center space-x-3 sm:space-x-4">
         {/* Logo */}
         <div className="cursor-pointer">
-          <Link to="" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <img
               src="/images/logo.png"
               alt="logo"
@@ -72,17 +101,22 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         {/* Search Bar */}
-        <div className="relative flex-1 md:flex-[0.8]">
-          <input
-            type="text"
-            placeholder="Search"
-            className="border w-full border-orange-300 bg-orange-50 text-gray-700 outline-none rounded-xl px-3 py-2 sm:px-4 hover:border-orange-600 focus:border-orange-500 duration-200 focus:shadow-md focus:shadow-orange-600/10 focus:bg-blue-50"
-            value={searchTerm}
-            onChange={searchHandler}
-          />
+        <div className="relative flex-1 md:flex-[0.8]" id="search-container">
+          <form className="flex-1" onSubmit={submitHandler}>
+            <input
+              type="text"
+              placeholder="Search"
+              className="border w-full border-orange-300 bg-orange-50 text-gray-700 outline-none rounded-xl px-3 py-2 sm:px-4 hover:border-orange-600 focus:border-orange-500 duration-200 focus:shadow-md focus:shadow-orange-600/10 focus:bg-blue-50"
+              value={searchTerm}
+              onChange={searchHandler}
+            />
+            <button className="absolute top-[50%] -translate-y-[50%] right-1 text-orange-600 cursor-pointer">
+              <SearchIcon />
+            </button>
+          </form>
 
           {/* Suggestions Box */}
-          {searchedItems?.length >= 1 && searchTerm?.trim() && (
+          {showSuggestions && searchTerm?.trim() && (
             <SuggestionsBox
               items={searchedItems}
               search={searchTerm}

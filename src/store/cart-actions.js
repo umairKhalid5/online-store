@@ -3,13 +3,6 @@ import { uiSliceActions } from './ui-slice';
 
 export const getCartData = () => {
   return async dispatch => {
-    // dispatch(
-    //   uiSliceActions.toggleAlert({
-    //     msg: 'Looking for previously saved items',
-    //     alertType: 'info',
-    //   })
-    // );
-
     const getData = async () => {
       const res = await fetch(
         'https://brandista-c8004-default-rtdb.firebaseio.com/cart.json'
@@ -25,12 +18,6 @@ export const getCartData = () => {
       const cartData = await getData();
 
       if (!cartData?.items?.length) return;
-      // return dispatch(
-      //   uiSliceActions.toggleAlert({
-      //     msg: 'No items found',
-      //     alertType: 'info',
-      //   })
-      // );
 
       dispatch(
         cartSliceActions.replaceCart({

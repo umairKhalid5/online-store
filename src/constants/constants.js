@@ -427,7 +427,7 @@ export const featured = [
   {
     products: [
       {
-        id: 'fe1',
+        id: 'h3',
         category: 'headphones',
         name: 'Immortal 1000D',
         price: 50,
@@ -442,7 +442,7 @@ export const featured = [
         ],
       },
       {
-        id: 'fe2',
+        id: 'sh5',
         category: 'shoes',
         name: 'NK Zoom Pegasus 39',
         price: 49,
@@ -457,7 +457,7 @@ export const featured = [
         ],
       },
       {
-        id: 'fe3',
+        id: 'gr3',
         category: 'garments',
         name: 'MEN T-SHIRT White',
         price: 50,
@@ -471,7 +471,7 @@ export const featured = [
         ],
       },
       {
-        id: 'fe4',
+        id: 'h5',
         category: 'headphones',
         name: 'Watch Blaze',
         price: 49,
@@ -486,7 +486,7 @@ export const featured = [
         ],
       },
       {
-        id: 'fe5',
+        id: 'sh6',
         category: 'shoes',
         name: 'Airdopes 281 Pro',
         price: 69,
@@ -501,7 +501,7 @@ export const featured = [
         ],
       },
       {
-        id: 'fe6',
+        id: 'fr3',
         category: 'furniture',
         name: 'Fresco Chair',
         price: 50,
@@ -515,7 +515,7 @@ export const featured = [
         ],
       },
       {
-        id: 'fe7',
+        id: 'gr4',
         category: 'garments',
         name: 'Polo 705 Black',
         price: 34,
@@ -530,7 +530,7 @@ export const featured = [
         ],
       },
       {
-        id: 'fe8',
+        id: 'h6',
         category: 'headphones',
         name: 'Airdopes 281 Pro',
         price: 69,
@@ -561,6 +561,7 @@ const allStraightProducts = [
 ];
 
 export const allMainProducts = [
+  { category: 'all' },
   {
     products: [
       ...headphones[1].products,
@@ -670,7 +671,7 @@ export const trending = [
         ],
       },
       {
-        id: 'fe7',
+        id: 'gr4',
         name: 'Polo 705 Black',
         price: 34,
         desc: `Layer up in comfort!`,

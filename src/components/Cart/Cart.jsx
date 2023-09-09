@@ -6,17 +6,14 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import { Link, useNavigate } from 'react-router-dom';
-import { sendCartData } from '../../store/cart-actions';
 
 const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const cartItems = useSelector(state => state.cart.items);
-  const cart = useSelector(state => state.cart);
   const itemsCount = useSelector(state => state.cart.totalQuantity);
   const totalPrice = useSelector(state => state.cart.totalPrice);
-  // console.log(cartItems);
 
   const hideCart = () => dispatch(cartSliceActions.toggleCartVisibility());
 
@@ -62,11 +59,11 @@ const Cart = () => {
 
       {cartItems.length > 0 && (
         <div className="mx-auto fixed left-1 right-1 top-[50%] -translate-y-[50%] rounded-lg overflow-hidden bg-white px-1 py-4 z-[60] sm:px-5 sm:py-8 sm:max-w-3xl">
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 max-h-[85vh]">
             {/* Back */}
-            <div className="font-medium flex w-full gap-1 items-center">
+            <div className="font-medium flex w-full gap-1 items-center pt-2">
               <div
-                className="cursor-pointer text-gray-600 hover:text-orange-600 transition-colors duration-200"
+                className="cursor-pointer text-orange-600 hover:text-orange-400 transition-colors duration-200 pl-1"
                 onClick={hideCart}
               >
                 <ArrowBackIosIcon />
@@ -76,14 +73,14 @@ const Cart = () => {
             </div>
 
             {/* Items */}
-            <ul className="suggestions-box max-h-96 w-full rounded-md overflow-hidden flex flex-col items-center justify-between gap-3 overflow-y-auto">
+            <ul className="suggestions-box max-h-[100%] w-full rounded-md overflow-hidden flex flex-col items-center justify-between gap-2 overflow-y-auto sm:gap-3">
               {cartItems.map(item => (
                 <li
                   key={item?.image}
                   className="w-full px-1 flex py-2 gap-3 justify-between border rounded-md border-gray-400 bg-gray-100 hover:bg-blue-50 transition-colors sm:px-2"
                 >
                   {/* :Left */}
-                  <div className="flex gap-1 items-center sm:gap-3">
+                  <div className="flex gap-2 items-center sm:gap-3">
                     <Link
                       to={`/categories/${item?.category}/${item?.id}`}
                       onClick={hideCart}

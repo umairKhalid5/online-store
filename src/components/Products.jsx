@@ -6,7 +6,7 @@ import {
   garments,
   furniture,
   featured,
-  allProducts,
+  allMainProducts,
 } from '../constants/constants';
 import ProductBox from './ProductBox';
 import { MenuItem, TextField } from '@mui/material';
@@ -14,6 +14,8 @@ import { MenuItem, TextField } from '@mui/material';
 const categoriesArr = ['headphones', 'shoes', 'furniture', 'garments', 'all'];
 
 const Products = ({ title }) => {
+  window.scrollTo({ top: 0, left: 0 });
+
   const [productsToDisplay, setProductsToDisplay] = useState([]);
   const [sortBy, setSortBy] = useState('');
 
@@ -29,7 +31,7 @@ const Products = ({ title }) => {
   if (params.category === 'shoes') originalProductsArr = shoes;
   if (params.category === 'furniture') originalProductsArr = furniture;
   if (params.category === 'garments') originalProductsArr = garments;
-  if (params.category === 'all') originalProductsArr = allProducts;
+  if (params.category === 'all') originalProductsArr = allMainProducts;
   if (title === 'Featured') originalProductsArr = featured;
 
   const category = params.category || 'featured';
@@ -68,7 +70,7 @@ const Products = ({ title }) => {
     navigate(`?sort=${e.target.value === 'ascending' ? 'asc' : 'desc'}`);
 
   return (
-    <div className="w-full px-3 py-10 bg-white">
+    <div className="w-full px-3 py-10 bg-white take-screen">
       <div className="max-w-7xl mx-auto relative space-y-3">
         {/* Filter & Sort Options */}
         {params.category && (

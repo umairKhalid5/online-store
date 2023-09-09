@@ -14,7 +14,7 @@ const OrderConfirmation = () => {
           Order Successfully Placed! 🥳
         </p>
         <p className="text-lg font-medium text-center text-gray-500">
-          You'll soon receive a text message and an Email
+          We'll get in touch with you soon!
         </p>
         <button className="btn" onClick={init}>
           Continue Shopping

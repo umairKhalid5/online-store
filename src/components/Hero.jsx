@@ -104,12 +104,12 @@ const Hero = () => {
               />
               {/* <img src={item.image} className="w-full h-full object-cover" /> */}
               <div className="absolute left-[50%] bottom-1 -translate-x-[50%] space-y-1 text-white text-center sm:bottom-3 sm:space-y-2 z-[2]">
-                <h2 className="text-2xl py-1 px-1 text-orange-500 font-medium uppercase sm:text-7xl bg-white/80 rounded-full sm:px-3">
+                <h2 className="text-2xl py-1 px-1 text-orange-500 font-medium uppercase sm:text-7xl bg-white/80 rounded-xl md:rounded-full sm:px-3">
                   {item.title}
                 </h2>
                 <Link
                   to={item.path}
-                  className="btn p-2 px-5 inline-block sm:w-64 sm:px-4 sm:py-3"
+                  className="btn p-2 px-5 inline-block sm:w-64 sm:px-4 sm:py-3 rounded-xl md:rounded-full"
                 >
                   Shop Now
                 </Link>

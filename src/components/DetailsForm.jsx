@@ -10,6 +10,8 @@ const emailValidStr =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 const DetailsForm = () => {
+  window.scrollTo({ top: 0, left: 0 });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -98,6 +100,16 @@ const DetailsForm = () => {
   const submitHandler = e => {
     e.preventDefault();
 
+    if (!cartItems.length) {
+      dispatch(
+        uiSliceActions.toggleAlert({
+          msg: 'No items in the cart',
+          alertType: 'error',
+        })
+      );
+      return navigate('/categories/all');
+    }
+
     if (!formIsValid) {
       !firstNameIsValid && firstNameBlurHandler();
       !lastNameIsValid && lastNameBlurHandler();
@@ -127,31 +139,21 @@ const DetailsForm = () => {
     };
 
     dispatch(sendOrder(orderData));
-
-    if (isOrdered) {
-      resetFirstName();
-      resetLastName();
-      resetPhoneNumber();
-      resetEmail();
-      resetAddress();
-      resetCity();
-      resetZipCode();
-    }
   };
 
   useEffect(() => {
-    if (!cartItems.length) navigate('/categories/all');
-  }, [cartItems]);
+    if (!cartItems.length && isOrdered) navigate('/');
+  }, [cartItems, isOrdered]);
 
   return (
-    <div className="w-full py-5 px-3 max-w-7xl mx-auto">
-      <form onSubmit={submitHandler} className="form">
+    <div className="w-full py-5 px-3 max-w-7xl mx-auto flex items-center take-screen">
+      <form onSubmit={submitHandler} className="form flex-1">
         <div className="flex flex-col space-y-5">
           <h4 className="text-orange-600 text-2xl font-medium">
             Shipping INFORMATION
           </h4>
           {/* Inputs Container */}
-          <div className="text-black flex flex-col space-y-3 items-center justify-between">
+          <div className="text-black flex flex-col space-y-3 items-center justify-between sm:space-y-4">
             {/* Row-1 */}
             <div className="flex flex-col space-y-3 justify-between w-full sm:space-x-3 sm:flex-row sm:space-y-0">
               {/* Input 1 */}
@@ -303,8 +305,8 @@ const DetailsForm = () => {
         {/* Reserve Now Button */}
         <div className="rounded-md py-6 pb-12 w-full flex mt-2 justify-end">
           <button
-            // disabled={!formIsValid}
-            className="btn w-full sm:w-auto"
+            disabled={!cartItems.length}
+            className="btn w-full sm:w-auto disabled:opacity-40 disabled:pointer-events-none disabled:bg-zinc-400 disabled:border-zinc-400"
           >
             Confirm Order
           </button>
