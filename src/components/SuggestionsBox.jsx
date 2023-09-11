@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Image from './Image';
 
-const SuggestionsBox = ({ items, search, setSearchTerm }) => {
+const SuggestionsBox = ({ items, setSearchTerm }) => {
   return (
     <ul className="suggestions-box absolute top-12 -left-9 -right-20 sm:left-0 sm:right-0 sm:w-full max-h-[80vh] rounded-md overflow-hidden flex flex-col border-2 divide-y-2 overflow-y-auto bg-gray-100">
       <>

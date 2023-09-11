@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Image from './Image';
 // import Swiper core and required modules
 import {
@@ -18,7 +19,6 @@ import 'swiper/css/navigation';
 // import 'swiper/css/pagination';
 // import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
-import { Link } from 'react-router-dom';
 
 const swiperData = [
   {
@@ -54,11 +54,6 @@ const Hero = () => {
           alt="hero background"
           className="object-cover w-full max-h-full -translate-x-[30%]"
         />
-        {/* <img
-          src="images/hero/bg.jpg"
-          alt="hero background"
-          className="object-cover w-full max-h-full -translate-x-[30%]"
-        /> */}
       </div>
 
       <div className="flex-1 max-w-screen-2xl w-full mx-auto flex items-center relative z-10 md:space-x-5">
@@ -102,7 +97,6 @@ const Hero = () => {
                 className="w-full h-full object-cover"
                 alt={item.title}
               />
-              {/* <img src={item.image} className="w-full h-full object-cover" /> */}
               <div className="absolute left-[50%] bottom-1 -translate-x-[50%] space-y-1 text-white text-center sm:bottom-3 sm:space-y-2 z-[2]">
                 <h2 className="text-2xl py-1 px-1 text-orange-500 font-medium uppercase sm:text-7xl bg-white/80 rounded-xl md:rounded-full sm:px-3">
                   {item.title}

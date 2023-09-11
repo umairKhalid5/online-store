@@ -46,20 +46,12 @@ export const getCartData = () => {
 
 export const sendCartData = cart => {
   return async dispatch => {
-    // if (cart.items.length)
     dispatch(
       uiSliceActions.toggleAlert({
         msg: 'Updating Cart...',
         alertType: 'info',
       })
     );
-    // else
-    //   dispatch(
-    //     uiSliceActions.toggleAlert({
-    //       msg: 'Emptying Cart...',
-    //       alertType: 'info',
-    //     })
-    //   );
 
     const sendRequest = async () => {
       const res = await fetch(
@@ -129,7 +121,6 @@ export const sendOrder = orderData => {
 
     try {
       await sendOrderData();
-      // dispatch(cartSliceActions.resetCart());
       dispatch(
         cartSliceActions.replaceCart({
           items: [],

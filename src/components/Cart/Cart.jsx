@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartSliceActions } from '../../store/cart-slice';
 import Image from '../Image';
@@ -122,9 +122,6 @@ const Cart = () => {
                           </button>
                         </span>
                       </div>
-                      {/* <p className="text-orange-500 font-medium sm:text-lg">
-                        Add + and - Buttons
-                      </p> */}
                     </div>
                   </div>
 
@@ -134,7 +131,6 @@ const Cart = () => {
                       className="font-semibold text-lg sm:text-xl text-orange-600 cursor-pointer"
                       onClick={() => updateCart('deleteItem', item)}
                     >
-                      {/* {item?.quantity}-Add DELETE button here */}
                       <DeleteOutlinedIcon sx={{ fontSize: '1.8rem' }} />
                     </div>
                     <p className="text-orange-600 font-semibold text-lg sm:text-xl">

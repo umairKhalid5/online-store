@@ -11,6 +11,7 @@ const uiSlice = createSlice({
     toggleAlert(state, action) {
       const msg = action.payload.msg;
       const type = action.payload.alertType;
+
       if (!msg.trim()) state.showAlert = false;
       else {
         state.showAlert = true;

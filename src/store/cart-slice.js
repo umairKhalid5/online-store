@@ -21,15 +21,6 @@ const cartSlice = createSlice({
       state.isOrdered = !state.isOrdered;
     },
 
-    // Reset Cart
-    // resetCart(state) {
-    //   state.items = [];
-    //   state.totalQuantity = 0;
-    //   state.totalPrice = 0;
-    //   state.isChanged = false;
-    //   state.cartVisibility = false;
-    // },
-
     // Replace Cart
     replaceCart(state, action) {
       state.items = action.payload.items;

@@ -17,6 +17,7 @@ import {
   OrderConfirmation,
   SearchFeed,
   ScrollTopBtn,
+  ScrollToTop,
 } from './components';
 import { getCartData, sendCartData } from './store/cart-actions';
 
@@ -54,29 +55,35 @@ function App() {
       {showCart && <Cart />}
       {isOrdered && <OrderConfirmation />}
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Hero />
-              <Products title={'Featured'} />
-              <CallToActionOne />
-              <ItemsSlider />
-              <CallToActionTwo />
-              <GridMenu />
-            </>
-          }
-        />
-        <Route path="/categories/:category" element={<Products />} />
-        <Route path="/categories/:category/:id" element={<ProductDetails />} />
+      <ScrollToTop>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Products title={'Featured'} />
+                <CallToActionOne />
+                <ItemsSlider />
+                <CallToActionTwo />
+                <GridMenu />
+              </>
+            }
+          />
+          <Route path="/categories/:category" element={<Products />} />
+          <Route
+            path="/categories/:category/:id"
+            element={<ProductDetails />}
+          />
 
-        {/* {!isOrdered && <Route path="/checkout" element={<DetailsForm />} />} */}
-        <Route path="/checkout" element={<DetailsForm />} />
+          <Route path="/checkout" element={<DetailsForm />} />
 
-        <Route path="/search/:searchTerm" element={<SearchFeed />} />
-        <Route path="*" element={<Navigate replace to="/" />} />
-      </Routes>
+          <Route path="/search/:searchTerm" element={<SearchFeed />} />
+
+          <Route path="*" element={<Navigate replace to="/" />} />
+        </Routes>
+      </ScrollToTop>
+
       <Footer />
       <ScrollTopBtn />
     </>

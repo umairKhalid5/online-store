@@ -12,8 +12,6 @@ const Alert = () => {
   const showAlert = useSelector(state => state.ui.showAlert);
   const type = useSelector(state => state.ui.alertType);
 
-  // console.log(msg, showAlert);
-
   const classes = `${
     type === 'info'
       ? 'text-sky-400'

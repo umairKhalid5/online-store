@@ -2,14 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { allMainProducts } from '../constants/constants';
 import Image from './Image';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { cartSliceActions } from '../store/cart-slice';
-import { uiSliceActions } from '../store/ui-slice';
-import { sendCartData } from '../store/cart-actions';
 
 const ProductDetails = () => {
-  window.scrollTo({ top: 0, left: 0 });
-
   const dispatch = useDispatch();
   const params = useParams();
   const navigate = useNavigate();
@@ -54,11 +50,6 @@ const ProductDetails = () => {
               alt={selectedItem.name}
               className="object-cover w-full h-full"
             />
-            {/* <img
-              src={imgSrc || selectedItem.image}
-              alt={selectedItem.name}
-              className="object-cover w-full h-full"
-            /> */}
           </div>
 
           {/* Thumbs */}
@@ -81,11 +72,6 @@ const ProductDetails = () => {
                   className="object-cover w-full h-full rounded-md"
                   opacity
                 />
-                {/* <img
-                  src={img}
-                  alt={selectedItem.name}
-                  className="object-cover w-full h-full rounded-md"
-                /> */}
               </div>
             ))}
           </div>

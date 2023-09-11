@@ -12,4 +12,5 @@ export { default as DetailsForm } from './DetailsForm';
 export { default as OrderConfirmation } from './OrderConfirmation';
 export { default as SearchFeed } from './SearchFeed';
 export { default as ScrollTopBtn } from './ScrollTopBtn';
+export { default as ScrollToTop } from './ScrollToTop';
 export { default as Cart } from './Cart/Cart';

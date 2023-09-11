@@ -14,8 +14,6 @@ import { MenuItem, TextField } from '@mui/material';
 const categoriesArr = ['headphones', 'shoes', 'furniture', 'garments', 'all'];
 
 const Products = ({ title }) => {
-  window.scrollTo({ top: 0, left: 0 });
-
   const [productsToDisplay, setProductsToDisplay] = useState([]);
   const [sortBy, setSortBy] = useState('');
 

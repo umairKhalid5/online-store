@@ -10,8 +10,6 @@ const emailValidStr =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 const DetailsForm = () => {
-  window.scrollTo({ top: 0, left: 0 });
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

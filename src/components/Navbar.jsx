@@ -17,6 +17,19 @@ const navItems = [
   },
 ];
 
+const mobileNavItems = [
+  {
+    item: 'Home',
+    id: 'base-home',
+    path: '',
+  },
+  {
+    item: 'Products',
+    id: 'categories',
+    path: 'categories/all',
+  },
+];
+
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -42,6 +55,7 @@ const Navbar = () => {
 
   useEffect(() => {
     if (!searchTerm.trim()) return;
+
     const product = allMainProducts[1]?.products?.filter(item =>
       item.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -50,11 +64,14 @@ const Navbar = () => {
     setShowSuggestions(true);
   }, [searchTerm]);
 
+  // Hide Suggestions Box
   useEffect(() => {
     const hideSuggestionBox = e => {
+      if (!showSuggestions) return;
+
       if (
-        e.target.id !== 'search-container' &&
-        !e.target.closest('div').id !== 'search-container'
+        e.target?.id !== 'search-container' &&
+        !e.target?.closest('div')?.id !== 'search-container'
       )
         setShowSuggestions(false);
     };
@@ -126,7 +143,6 @@ const Navbar = () => {
         </div>
 
         {/* Nav Items */}
-        {/* <div className="hidden sm:flex"> */}
         <ul className="hidden space-x-4 lg:space-x-12 md:flex items-center font-medium uppercase">
           {navItems.map(item => (
             <li
@@ -146,7 +162,6 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        {/* </div> */}
 
         {/* Cart Icon */}
         <button
@@ -201,9 +216,9 @@ const Navbar = () => {
           <div className="w-full h-[1px] bg-gray-300"></div>
         </div>
 
-        {/* Nav Items */}
+        {/* Mobile Nav Items */}
         <ul className="flex flex-col items-center font-medium tracking-wide space-y-10">
-          {navItems.map(item => (
+          {mobileNavItems.map(item => (
             <li
               key={item?.item}
               className="flex flex-col items-center cursor-pointer"
@@ -216,7 +231,6 @@ const Navbar = () => {
                     navData.isActive ? 'text-orange-600' : 'text-gray-700'
                   } transition-colors duration-200 text-xl`
                 }
-                // className="transition-colors duration-200 text-xl text-gray-700"
               >
                 {item?.item}
               </NavLink>
