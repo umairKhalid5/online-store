@@ -47,7 +47,7 @@ const Hero = () => {
   return (
     <div className="hero-section w-full px-3 py-10 bg-slate-50 relative flex items-center">
       {/* Backgound Image */}
-      <div className="image-container hidden md:block absolute inset-0 w-full h-full opacity-40">
+      <div className="image-container hidden md:block absolute inset-0 w-full h-full opacity-50 after:content-['*'] after:absolute after:inset-0 after:bg-gradient-to-r after:from-transparent after:to-slate-50 after:to-70%">
         <Image
           opacity
           src="images/hero/bg.jpg"
