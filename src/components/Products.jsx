@@ -73,7 +73,6 @@ const Products = ({ title }) => {
         {/* Filter & Sort Options */}
         {params.category && (
           <div className="flex justify-between items-start space-x-2 mb-6">
-            {/* // TODO: Continue working on these chips. Update results upon clicking on these chips */}
             <div className="hidden md:flex flex-row flex-wrap gap-2 items-center justify-center flex-1 sm:justify-start sm:gap-5">
               {categoriesArr.map((cat, i) => (
                 <span
@@ -140,7 +139,7 @@ const Products = ({ title }) => {
             ? 'All Products'
             : params.category}
         </h3>
-        <div className="flex flex-wrap gap-6 justify-center items-center px-2 py-4 sm:px-4">
+        <div className="flex flex-wrap gap-6 justify-center items-center py-4 lg:justify-between">
           {/* Products */}
           {productsToDisplay?.length > 0 &&
             productsToDisplay?.map((item, i) => (
