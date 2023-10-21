@@ -36,7 +36,7 @@ const Cart = () => {
   return (
     <>
       <div
-        className="fixed top-0 left-0 right-0 w-full bottom-0 px-3 py-10 bg-black/60 z-50 flex items-center justify-between"
+        className="fixed top-0 left-0 right-0 w-full bottom-0 px-3 py-10 bg-black/60 z-50 flex items-center justify-between backdrop-blur-sm"
         onClick={hideCart}
       ></div>
 

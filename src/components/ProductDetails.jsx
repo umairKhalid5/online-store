@@ -125,7 +125,7 @@ const ProductDetails = () => {
               Add to Cart
             </button>
             <button
-              className="btn w-full sm:w-1/3"
+              className="btn mt-3 w-full sm:w-1/3"
               onClick={() => buyNow(selectedItem)}
             >
               Buy Now
